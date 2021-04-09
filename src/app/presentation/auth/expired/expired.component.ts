@@ -1,14 +1,6 @@
 import { Component, HostBinding, Input, OnInit, Directive, ElementRef } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ROUTE_TRANSITION } from '../../../main/app.animation';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PostExpirarSenhaUsecase } from 'src/app/core/usecases/autenticacao/post-expirar-senha.usecase';
 import { AutenticacaoModel } from 'src/app/core/domain/autenticacao.model';
@@ -17,7 +9,6 @@ import { AutenticacaoModel } from 'src/app/core/domain/autenticacao.model';
   selector: 'app-expired',
   templateUrl: './expired.component.html',
   styleUrls: ['./expired.component.scss'],
-  animations: [...ROUTE_TRANSITION],
 })
 export class ExpiredComponent implements OnInit {
   @HostBinding('[@routeTransition]')

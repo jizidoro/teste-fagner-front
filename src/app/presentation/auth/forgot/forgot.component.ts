@@ -3,14 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacaoModel } from 'src/app/core/domain/autenticacao.model';
 import { PostEsquecerSenhaUsecase } from 'src/app/core/usecases/autenticacao/post-esquecer-senha.usecases';
-import { ROUTE_TRANSITION } from '../../../main/app.animation';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
   styleUrls: ['./forgot.component.scss'],
-  animations: [...ROUTE_TRANSITION],
 })
 export class ForgotComponent implements OnInit {
   @HostBinding('[@routeTransition]')

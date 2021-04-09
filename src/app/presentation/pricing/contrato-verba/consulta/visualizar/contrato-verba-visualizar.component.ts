@@ -1,5 +1,4 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { ROUTE_TRANSITION } from '../../../../../main/app.animation';
 import { MatDialogRef } from '@angular/material/dialog';
 
 export interface tableList {
@@ -29,7 +28,6 @@ export interface tableList {
   selector: 'contrato-verba-visualizar',
   templateUrl: './contrato-verba-visualizar.component.html',
   styleUrls: ['./contrato-verba-visualizar.component.scss'],
-  animations: [...ROUTE_TRANSITION],
 })
 export class ContratoVerbaVisualizarComponent implements OnInit {
   @HostBinding('[@routeTransition]')

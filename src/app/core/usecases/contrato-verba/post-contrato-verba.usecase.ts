@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UseCase } from '../../base/use-case';
 import { ContratoVerbaRepository } from '../../repositories/contrato-verba.repository';
-import { SingleD1000ResponseModel } from '../../utils/single-d1000-response-model';
+import { SinglekpmgResponseModel } from '../../utils/single-kpmg-response-model';
 import { Observable } from 'rxjs';
 import { ContratoVerbaModel } from '../../domain/contrato-verba-model/contrato-verba.model';
 
@@ -9,10 +9,10 @@ import { ContratoVerbaModel } from '../../domain/contrato-verba-model/contrato-v
   providedIn: 'root',
 })
 export class PostContratoVerbaUsecase
-  implements UseCase<ContratoVerbaModel, SingleD1000ResponseModel<ContratoVerbaModel>> {
+  implements UseCase<ContratoVerbaModel, SinglekpmgResponseModel<ContratoVerbaModel>> {
   constructor(private processoRepository: ContratoVerbaRepository) {}
 
-  execute(params: ContratoVerbaModel): Observable<SingleD1000ResponseModel<ContratoVerbaModel>> {
+  execute(params: ContratoVerbaModel): Observable<SinglekpmgResponseModel<ContratoVerbaModel>> {
     return this.processoRepository.postContratoVerba(params);
   }
 }

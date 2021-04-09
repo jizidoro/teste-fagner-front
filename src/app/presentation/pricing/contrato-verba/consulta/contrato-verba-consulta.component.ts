@@ -1,5 +1,4 @@
 import { Component, HostBinding, ViewChild, OnInit } from '@angular/core';
-import { ROUTE_TRANSITION } from '../../../../main/app.animation';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ContratoVerbaHistoricoComponent } from './historico/contrato-verba-historico.component';
@@ -13,7 +12,6 @@ import { PageResponseModel } from '../../../../core/utils/page-response.model';
   selector: 'app-contrato-verba-consulta',
   templateUrl: './contrato-verba-consulta.component.html',
   styleUrls: ['./contrato-verba-consulta.component.scss'],
-  animations: [...ROUTE_TRANSITION],
 })
 export class ContratoVerbaConsultaComponent implements OnInit {
   @HostBinding('[@routeTransition]')

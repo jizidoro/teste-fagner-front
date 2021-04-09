@@ -1,4 +1,4 @@
-import { SingleD1000ResponseModel } from '../../../core/utils/single-d1000-response-model';
+import { SinglekpmgResponseModel } from '../../../core/utils/single-kpmg-response-model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, mergeMap, take, toArray } from 'rxjs/operators';
@@ -24,9 +24,9 @@ export class ContratoVerbaWebRepository extends ContratoVerbaRepository {
 
   postContratoVerba(
     param: ContratoVerbaModel
-  ): Observable<SingleD1000ResponseModel<ContratoVerbaModel>> {
+  ): Observable<SinglekpmgResponseModel<ContratoVerbaModel>> {
     var request = this.http
-      .post<SingleD1000ResponseModel<ContratoVerbaWebEntity>>(
+      .post<SinglekpmgResponseModel<ContratoVerbaWebEntity>>(
         `${environment.CONTRATOVERBA}FcContratoVerba/incluir`,
         this.mapper.mapTo(param)
       )

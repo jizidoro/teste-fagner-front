@@ -20,6 +20,7 @@ import { ScreenModalService } from './screen-modal.service';
       </div>
     </div>
     <div class="screen-modal-background"></div>`,
+  styleUrls: ['./screen-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ScreenModalComponent implements OnInit, OnDestroy {

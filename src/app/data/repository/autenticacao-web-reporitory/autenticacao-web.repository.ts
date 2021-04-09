@@ -1,4 +1,4 @@
-import { SingleD1000ResponseModel } from '../../../core/utils/single-d1000-response-model';
+import { SinglekpmgResponseModel } from '../../../core/utils/single-kpmg-response-model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, mergeMap, take, toArray } from 'rxjs/operators';
@@ -21,9 +21,9 @@ export class AutenticacaoWebRepository extends AutenticacaoRepository {
 
   postExpirarSenha(
     param: AutenticacaoModel
-  ): Observable<SingleD1000ResponseModel<AutenticacaoModel>> {
+  ): Observable<SinglekpmgResponseModel<AutenticacaoModel>> {
     var request = this.http
-      .post<SingleD1000ResponseModel<AutenticacaoWebEntity>>(
+      .post<SinglekpmgResponseModel<AutenticacaoWebEntity>>(
         `${environment.AUTORIZACAO}Autenticacao/expirar-senha`,
         this.mapper.mapTo(param)
       )
@@ -38,9 +38,9 @@ export class AutenticacaoWebRepository extends AutenticacaoRepository {
 
   postEsquecerSenha(
     param: AutenticacaoModel
-  ): Observable<SingleD1000ResponseModel<AutenticacaoModel>> {
+  ): Observable<SinglekpmgResponseModel<AutenticacaoModel>> {
     var request = this.http
-      .post<SingleD1000ResponseModel<AutenticacaoWebEntity>>(
+      .post<SinglekpmgResponseModel<AutenticacaoWebEntity>>(
         `${environment.CONTRATOVERBA}autenticacao/esquecer-senha`,
         this.mapper.mapTo(param)
       )

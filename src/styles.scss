@@ -1,23 +1,7 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,500,700';
-@import 'theme';
 
-.mat-drawer-container {
-  color: $color;
-  background: $background;
-}
+@import './assets/index.scss';
 
-@import 'styles/auth/login';
-@import 'styles/auth/forgot';
-
-@import 'styles/home';
-@import 'styles/screen-modal';
-
-@import 'styles/charge/charge';
-@import 'styles/charge/statistics';
-
-@import 'styles/contrato-verba/novo';
-@import 'styles/contrato-verba/consulta';
-@import 'styles/contrato-verba/consulta/history';
-@import 'styles/contrato-verba/consulta/preview';
-@import 'styles/contrato-verba/pesquisa';
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

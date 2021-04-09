@@ -1,7 +1,6 @@
 import { Component, HostBinding, ViewChild, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormBuilder, FormArray } from '@angular/forms';
 import { ContratoVerbaModel } from 'src/app/core/domain/contrato-verba-model/contrato-verba.model';
-import { ROUTE_TRANSITION } from '../../../../main/app.animation';
 import { PostContratoVerbaUsecase } from 'src/app/core/usecases/contrato-verba/post-contrato-verba.usecase';
 import { ContratoVerbaProdModel } from 'src/app/core/domain/contrato-verba-model/contrato-verba-prod.model';
 import { ContratoVerbaFilialModel } from 'src/app/core/domain/contrato-verba-model/contrato-verba-filial.model';
@@ -11,8 +10,8 @@ import { BaUsuLookupPorNomeUsecase } from '../../../../core/lookup-usecases/ba-u
 import { ScreenModalService } from '../../../../components/screen-modal/screen-modal.service';
 import { Observable, of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { GetD1000PermissaoTokenUsecase } from 'src/app/core/usecases/d1000-token/get-d1000-permissao-token.usecase';
-import { D1000PermissaoTokenModel } from 'src/app/core/utils/d1000-permissao-token.model';
+import { GetkpmgPermissaoTokenUsecase } from 'src/app/core/usecases/kpmg-token/get-kpmg-permissao-token.usecase';
+import { kpmgPermissaoTokenModel } from 'src/app/core/utils/kpmg-permissao-token.model';
 
 export interface Task {
   name: string;
@@ -24,7 +23,6 @@ export interface Task {
   selector: 'app-contrato-verba-novo',
   templateUrl: './contrato-verba-novo.component.html',
   styleUrls: ['./contrato-verba-novo.component.scss'],
-  animations: [...ROUTE_TRANSITION],
 })
 export class ContratoVerbaNovoComponent implements OnInit {
   @HostBinding('[@routeTransition]')
@@ -71,14 +69,14 @@ export class ContratoVerbaNovoComponent implements OnInit {
 
   produtoOuProdUso = '';
 
-  usuarioLogado!: Observable<D1000PermissaoTokenModel>;
+  usuarioLogado!: Observable<kpmgPermissaoTokenModel>;
 
   public constructor(
     private fb: FormBuilder,
     private modalService: ScreenModalService,
     private postContratoVerba: PostContratoVerbaUsecase,
     private baUsuLookupPorNome: BaUsuLookupPorNomeUsecase,
-    public getD1000PermissaoTokenUsecase: GetD1000PermissaoTokenUsecase,
+    public getkpmgPermissaoTokenUsecase: GetkpmgPermissaoTokenUsecase,
     private snackBar: MatSnackBar
   ) {}
 
@@ -108,7 +106,7 @@ export class ContratoVerbaNovoComponent implements OnInit {
 
   ngOnInit() {
     this.startForm();
-    this.getD1000PermissaoTokenUsecase.execute().subscribe((usuario: D1000PermissaoTokenModel) => {
+    this.getkpmgPermissaoTokenUsecase.execute().subscribe((usuario: kpmgPermissaoTokenModel) => {
       this.usuarioLogado = of(usuario);
       console.log(usuario);
     });

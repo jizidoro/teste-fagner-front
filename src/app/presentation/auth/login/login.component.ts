@@ -1,7 +1,6 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ROUTE_TRANSITION } from '../../../main/app.animation';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PostLoginUsecase } from '../../../core/usecases/token/post-login.usecase';
 import { AutenticacaoModel } from '../../../core/domain/autenticacao.model';
@@ -10,7 +9,7 @@ import { AutenticacaoModel } from '../../../core/domain/autenticacao.model';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [...ROUTE_TRANSITION],
+  encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
   @HostBinding('[@routeTransition]')
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   verificarToken() {
-    var verificarToken = localStorage.getItem('d1000PermissaoToken');
+    var verificarToken = localStorage.getItem('kpmgPermissaoToken');
     if (verificarToken) {
       const token = JSON.parse(verificarToken);
       if (token != '') {
@@ -77,8 +76,8 @@ export class LoginComponent implements OnInit {
       (x) => {
         this.isLoading = false;
         if (x.codigo && x.codigo === 200) {
-          let d1000Token = x.data?.token.replace(/"/g, '');
-          localStorage.setItem('d1000PermissaoToken', d1000Token || '');
+          let kpmgToken = x.data?.token.replace(/"/g, '');
+          localStorage.setItem('kpmgPermissaoToken', kpmgToken || '');
           this.router.navigate(['/home']);
         } else if (x.codigo && x.codigo === 1001) {
           this.snackBar.open('Usuario ou senha invalida', 'Link', {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,12 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
-import { BreadcrumbsModule } from '../../../../components/breadcrumbs/breadcrumbs.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
-import { ContratoVerbaConsultaComponent } from "./contrato-verba-consulta.component";
-import { ContratoVerbaHistoricoComponent } from "./historico/contrato-verba-historico.component";
-import { ContratoVerbaVisualizarComponent } from "./visualizar/contrato-verba-visualizar.component";
+import { ContratoVerbaConsultaComponent } from './contrato-verba-consulta.component';
+import { ContratoVerbaHistoricoComponent } from './historico/contrato-verba-historico.component';
+import { ContratoVerbaVisualizarComponent } from './visualizar/contrato-verba-visualizar.component';
 
 @NgModule({
   imports: [
@@ -30,7 +29,6 @@ import { ContratoVerbaVisualizarComponent } from "./visualizar/contrato-verba-vi
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    BreadcrumbsModule,
     FontAwesomeModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -47,5 +45,4 @@ import { ContratoVerbaVisualizarComponent } from "./visualizar/contrato-verba-vi
     ContratoVerbaVisualizarComponent,
   ],
 })
-
 export class ContratoVerbaConsultaModule {}

@@ -1,5 +1,5 @@
 import { environment } from './../../../environments/environment';
-import { SetD1000PermissaoTokenUsecase } from './../../core/usecases/d1000-token/set-d1000-permissao-token.usecase';
+import { SetkpmgPermissaoTokenUsecase } from './../../core/usecases/kpmg-token/set-kpmg-permissao-token.usecase';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ export class OauthCustomService {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private setD1000PermissaoToken: SetD1000PermissaoTokenUsecase
+    private setkpmgPermissaoToken: SetkpmgPermissaoTokenUsecase
   ) {}
 
   public username = '';
@@ -20,7 +20,7 @@ export class OauthCustomService {
 
   async getToken(tokenPermissao: string): Promise<string> {
     return new Promise<string>(async (resolve) => {
-      const token = window.btoa('L3' + ':' + 'd1000');
+      const token = window.btoa('L3' + ':' + 'kpmg');
       const options = {
         headers: new HttpHeaders({
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -34,7 +34,7 @@ export class OauthCustomService {
         (data) => {
           if (data) {
             const token = JSON.stringify(data);
-            this.setD1000PermissaoToken.execute(JSON.stringify(token)).subscribe();
+            this.setkpmgPermissaoToken.execute(JSON.stringify(token)).subscribe();
           }
         },
         (err) => {

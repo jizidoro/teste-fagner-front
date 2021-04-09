@@ -7,7 +7,6 @@ import {
   OnChanges,
   ChangeDetectorRef,
 } from '@angular/core';
-import { ROUTE_TRANSITION } from '../../../../../main/app.animation';
 import { ProdutoGeralModel } from 'src/app/core/domain/produto-geral.model';
 import { GetAllProdutoGeralUsecase } from 'src/app/core/usecases/produto-geral/get-all-produto-geral.usecase';
 import { ScreenModalService } from 'src/app/components/screen-modal/screen-modal.service';
@@ -18,7 +17,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-contrato-verba-pesquisa',
   templateUrl: './contrato-verba-pesquisa.component.html',
   styleUrls: ['./contrato-verba-pesquisa.component.scss'],
-  animations: [...ROUTE_TRANSITION],
 })
 export class ContratoVerbaPesquisaComponent implements OnInit, OnChanges {
   public constructor(

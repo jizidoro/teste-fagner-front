@@ -1,10 +1,6 @@
 <div class="auth forgot align-center">
   <section>
-    <header>
-      <div class="logo">
-        <object data="assets/svg/logo-white.svg"></object>
-      </div>
-    </header>
+    <header></header>
 
     <!-- ============================================================================================================= -->
 
@@ -23,10 +19,7 @@
         </div>
 
         <div class="buttons">
-          <button mat-raised-button type="submit">
-            Recuperar Senha
-            <app-loading *ngIf="isLoading"></app-loading>
-          </button>
+          <button mat-raised-button type="submit">Recuperar Senha</button>
           <a [routerLink]="['/auth']">Voltar para login</a>
         </div>
       </form>

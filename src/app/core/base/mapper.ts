@@ -1,5 +1,5 @@
 import { PageResponseModel } from '../utils/page-response.model';
-import { SingleD1000ResponseModel } from '../utils/single-d1000-response-model';
+import { SinglekpmgResponseModel } from '../utils/single-kpmg-response-model';
 
 export abstract class Mapper<I, O> {
   abstract mapFrom(param: I): O;
@@ -12,7 +12,7 @@ export abstract class Mapper<I, O> {
     return listaRetorno;
   }
 
-  responseWebMapFrom(param: SingleD1000ResponseModel<I>): SingleD1000ResponseModel<O> {
+  responseWebMapFrom(param: SinglekpmgResponseModel<I>): SinglekpmgResponseModel<O> {
     return {
       ...param,
       data: param.data ? this.mapFrom(param.data) : undefined,

@@ -9,8 +9,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CoreModule } from 'src/app/core/core.module';
-import { LoadingModule } from 'src/app/components/loading/loading.module';
 
 @NgModule({
   imports: [
@@ -24,7 +22,6 @@ import { LoadingModule } from 'src/app/components/loading/loading.module';
     ReactiveFormsModule,
     MatSnackBarModule,
     FontAwesomeModule,
-    LoadingModule,
   ],
   declarations: [ExpiredComponent],
 })

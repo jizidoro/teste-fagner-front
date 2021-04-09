@@ -1,4 +1,4 @@
-import { SingleD1000ResponseModel } from '../../utils/single-d1000-response-model';
+import { SinglekpmgResponseModel } from '../../utils/single-kpmg-response-model';
 import { Injectable } from '@angular/core';
 import { UseCase } from '../../base/use-case';
 import { Observable } from 'rxjs';
@@ -9,10 +9,10 @@ import { AutenticacaoModel } from '../../domain/autenticacao.model';
   providedIn: 'root',
 })
 export class PostExpirarSenhaUsecase
-  implements UseCase<AutenticacaoModel, SingleD1000ResponseModel<AutenticacaoModel>> {
+  implements UseCase<AutenticacaoModel, SinglekpmgResponseModel<AutenticacaoModel>> {
   constructor(private processoRepository: AutenticacaoRepository) {}
 
-  execute(params: AutenticacaoModel): Observable<SingleD1000ResponseModel<AutenticacaoModel>> {
+  execute(params: AutenticacaoModel): Observable<SinglekpmgResponseModel<AutenticacaoModel>> {
     return this.processoRepository.postExpirarSenha(params);
   }
 }

@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BreadcrumbsModule } from '../../components/breadcrumbs/breadcrumbs.module';
-import { UtilsModule } from '../../components/utils/utils.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +15,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTabsModule } from '@angular/material/tabs';
-import { PageHeaderModule } from '../../components/page-header/page-header.module';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -28,16 +25,12 @@ import { MatSpinner, MatProgressSpinnerModule } from '@angular/material/progress
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LoadingModule } from '../../components/loading/loading.module';
 
 @NgModule({
   imports: [
     HomeRoutingModule,
     FormsModule,
-    LoadingModule,
     ReactiveFormsModule,
-    BreadcrumbsModule,
-    UtilsModule,
     FlexLayoutModule,
     MatIconModule,
     MatButtonModule,
@@ -51,7 +44,6 @@ import { LoadingModule } from '../../components/loading/loading.module';
     MatSlideToggleModule,
     MatSliderModule,
     MatTabsModule,
-    PageHeaderModule,
     CdkTableModule,
     MatPaginatorModule,
     MatTableModule,

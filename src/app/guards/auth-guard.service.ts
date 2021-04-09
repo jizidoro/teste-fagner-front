@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate, OnDestroy {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (!environment.disablePermissions) {
-      const tokenPermissao = localStorage.getItem('d1000PermissaoToken');
+      const tokenPermissao = localStorage.getItem('kpmgPermissaoToken');
 
       if (tokenPermissao) {
         return true;

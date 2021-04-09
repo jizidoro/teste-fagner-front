@@ -1,7 +1,0 @@
-@function image-default($filename){
-  @return url(~assets/img/#{$filename});
-}
-
-@function image-pbm($filename){
-  @return url(~assets/pbm/#{$filename});
-}

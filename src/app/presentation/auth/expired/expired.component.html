@@ -1,10 +1,6 @@
 <div class="auth login expired align-center">
   <section>
-    <header>
-      <div class="logo">
-        <object data="assets/svg/logo-white.svg"></object>
-      </div>
-    </header>
+    <header></header>
 
     <!-- ============================================================================================================= -->
     <div class="content">
@@ -37,10 +33,7 @@
         </div>
 
         <div class="buttons">
-          <button mat-raised-button>
-            Atualizar
-            <app-loading *ngIf="isLoading"></app-loading>
-          </button>
+          <button mat-raised-button>Atualizar</button>
           <a (click)="openSnackBar('Mensagem')" style="cursor: pointer"></a>
         </div>
       </form>

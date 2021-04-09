@@ -17,10 +17,6 @@ import { DataModule } from '../data/data.module';
 import { AuthInterceptor } from '../services/auth-interceptor/auth.interceptor';
 import { GlobalErrorHandlerService } from '../services/error-handler/global-error-handler.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { reducers } from '../reducers';
-import { RouteHandlerModule } from '../components/route-handler/route-handler.module';
 import { AutenticacaoWebRepository } from '../data/repository/autenticacao-web-reporitory/autenticacao-web.repository';
 import { AutenticacaoRepository } from '../core/repositories/autenticacao.repository';
 import { TokenWebRepository } from '../data/repository/token-web-reporitory/token-web.repository';
@@ -32,8 +28,9 @@ import { BaUsuLookupWebRepository } from '../data/lookup-repository/ba-usu-looku
 import { ProdutoGeralRepository } from '../core/repositories/produto-geral.repository';
 import { ProdutoGeralWebRepository } from '../data/repository/produto-geral-web-repository/produto-geral-web-repository';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { D1000TokenRepository } from '../core/repositories/d1000-token.repository';
-import { D1000TokenWebRepository } from '../data/repository/d1000-token-web-repository/d1000-token-web.repository';
+import { kpmgTokenRepository } from '../core/repositories/kpmg-token.repository';
+import { kpmgTokenWebRepository } from '../data/repository/kpmg-token-web-repository/kpmg-token-web.repository';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function getBaseHref(platformLocation: PlatformLocation): string {
   return platformLocation.getBaseHrefFromDOM();
@@ -51,10 +48,8 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     DataModule,
     FontAwesomeModule,
     HttpClientModule,
-    RouteHandlerModule,
     MatDialogModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([]),
+    NgbModule,
   ],
   providers: [
     {
@@ -70,7 +65,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     { provide: MatDialogRef, useValue: {} },
     { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
     { provide: LocationStrategy, useClass: PathLocationStrategy },
-    { provide: D1000TokenRepository, useClass: D1000TokenWebRepository },
+    { provide: kpmgTokenRepository, useClass: kpmgTokenWebRepository },
     { provide: AutenticacaoRepository, useClass: AutenticacaoWebRepository },
     { provide: ContratoVerbaRepository, useClass: ContratoVerbaWebRepository },
     { provide: ProdutoGeralRepository, useClass: ProdutoGeralWebRepository },

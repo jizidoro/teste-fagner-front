@@ -7,7 +7,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoadingModule } from 'src/app/components/loading/loading.module';
 
 @NgModule({
   imports: [
@@ -19,7 +18,6 @@ import { LoadingModule } from 'src/app/components/loading/loading.module';
     MatButtonModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    LoadingModule,
   ],
   declarations: [LoginComponent],
 })

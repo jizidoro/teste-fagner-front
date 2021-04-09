@@ -14,8 +14,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { BreadcrumbsModule } from '../../../../components/breadcrumbs/breadcrumbs.module';
-import { BranchesModule } from '../../../../components/branches/branches.module';
 import { ContratoVerbaNovoComponent } from './contrato-verba-novo.component';
 import { NgxCurrencyModule } from 'ngx-currency';
 import { customCurrencyMaskConfig } from 'src/app/services/formats/dinheiro';
@@ -40,11 +38,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTabsModule,
     MatRadioModule,
     MatTooltipModule,
-    BreadcrumbsModule,
     FontAwesomeModule,
     MatExpansionModule,
     NgxMaskModule.forRoot(),
-    BranchesModule,
     NgxCurrencyModule,
     ScreenModalModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
