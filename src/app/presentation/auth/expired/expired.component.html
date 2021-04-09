@@ -15,9 +15,7 @@
               formControlName="senha"
               placeholder="Digite uma nova senha"
             />
-            <span (click)="mostrarSenha()" (mouseout)="this.isSenha = true"
-              ><fa-icon [icon]="['fas', 'eye']"></fa-icon
-            ></span>
+            <span (click)="mostrarSenha()" (mouseout)="this.isSenha = true"></span>
           </div>
 
           <div class="fm-group fm-password">
@@ -26,8 +24,9 @@
               [attr.type]="isConfirmarSenha ? 'password' : 'text'"
               formControlName="confirmeSenha"
             />
-            <span (click)="mostrarConfirmarSenha()" (mouseout)="this.isConfirmarSenha = true"
-              ><fa-icon [icon]="['fas', 'eye']"></fa-icon
+            <span
+              (click)="mostrarConfirmarSenha()"
+              (mouseout)="this.isConfirmarSenha = true"
             ></span>
           </div>
         </div>

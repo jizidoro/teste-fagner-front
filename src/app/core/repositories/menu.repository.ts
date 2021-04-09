@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { MenuModel } from '../domain/menu.model';
+import { MenuModel } from '../utils/menu.model';
 
 export abstract class MenuRepository {
   abstract getAllMenus(): Observable<MenuModel>;

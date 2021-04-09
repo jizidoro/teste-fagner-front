@@ -1,15 +1,6 @@
-<div class="pane" [ngStyle]="getStyles()">
-  <div class="logo-container" (click)="redirecionaHome()">
-    <img src="../../../assets/img/logo-collapse.svg" class="logo-collapse" />
-  </div>
+<div class="pane">
+  <div class="logo-container" (click)="redirecionaHome()"></div>
   <nav>
-    <ul>
-      <li class="titulo" *ngFor="let item of menu">
-        <div *ngIf="item.show" class="menu-1" (click)="expandirMenu(item)">
-          <i class="pi {{ item.icon }} prove-color-white1 align-middle" style="font-size: 1em"></i>
-          <span class="title-menu"></span>
-        </div>
-      </li>
-    </ul>
+    <ul></ul>
   </nav>
 </div>

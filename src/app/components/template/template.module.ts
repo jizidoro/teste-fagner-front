@@ -8,8 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 
 import { LoadingComponent } from './loading/loading.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToolbarModule } from './toolbar-content/toolbar-content.module';
-import { ToastModule } from 'primeng/toast';
 import { ClickOnceDirective } from '../../directives/click-once-directive';
 import { DebounceClickDirective } from '../../directives/debounce-click-directive';
 import { StrictNumberOnlyDirective } from '../../directives/strict-number-only-directive';
@@ -23,15 +21,7 @@ import { StrictNumberOnlyDirective } from '../../directives/strict-number-only-d
     StrictNumberOnlyDirective,
     DebounceClickDirective,
   ],
-  imports: [
-    CommonModule,
-    FlexLayoutModule,
-    MenuModule,
-    HeaderModule,
-    NgbModule,
-    ToolbarModule,
-    ToastModule,
-  ],
+  imports: [CommonModule, FlexLayoutModule, MenuModule, HeaderModule, NgbModule],
   exports: [
     TemplateComponent,
     LoadingComponent,

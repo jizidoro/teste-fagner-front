@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, HostListener, EventEmitter, Output } from '@angular/core';
-import { GetProveAcessoTokenUsecase } from '../../../core/usecases/prove-token/get-prove-acesso-token.usecase';
-import { ProveAcessoTokenModel } from '../../../core/domain/prove-acesso-token';
 
 @Component({
   selector: 'app-template',
@@ -8,35 +6,18 @@ import { ProveAcessoTokenModel } from '../../../core/domain/prove-acesso-token';
   styleUrls: ['./template.component.scss'],
 })
 export class TemplateComponent implements OnInit {
-  @Input() tipoLayout: string;
-  @Input() isLoading: boolean = false;
-  @Input() redirect: string = '/home';
-  @Input() textoBreadcrumb: any[];
-  @Output() onClickLink? = new EventEmitter();
-  @Input() menuCollapsed: boolean = false;
-  proveToken: ProveAcessoTokenModel;
-  nomeUsuario: string;
-  isMobile: boolean;
+  @Input() tipoLayout = 'full';
+  @Input() isLoading = false;
+  @Input() redirect = '/home';
+  @Input() textoBreadcrumb!: any[];
+  @Output() clickLink? = new EventEmitter();
+  @Input() menuCollapsed = false;
+  nomeUsuario = '';
+  isMobile = false;
 
-  constructor(private getProveAcessoTokenUsecase: GetProveAcessoTokenUsecase) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.isMobile = window.innerWidth <= 599;
-
-    const localSmenuCollapsed = JSON.parse(localStorage.getItem('menuCollapsed'));
-    if (this.isMobile) {
-      this.menuCollapsed = true;
-    } else {
-      if (localSmenuCollapsed) this.menuCollapsed = localSmenuCollapsed == '1';
-    }
-
-    this.getProveAcessoTokenUsecase.execute().subscribe((result: ProveAcessoTokenModel) => {
-      if (result) {
-        this.proveToken = result;
-        this.formataNomeUsuario(result.name);
-      }
-    });
-  }
+  ngOnInit() {}
 
   formataNomeUsuario(nome: string) {
     this.nomeUsuario = nome.replace(
@@ -50,25 +31,11 @@ export class TemplateComponent implements OnInit {
     );
   }
 
-  fechaMenu($event) {
+  fechaMenu($event: any) {
     this.menuCollapsed = true;
-    this.setMenuLocalStorage();
   }
 
-  @HostListener('window:resize', ['$event']) onResize(event) {
-    this.isMobile = event.target.innerWidth <= 599 ? true : false;
-  }
-
-  expadirMenu($event) {
+  expadirMenu($event: any) {
     this.menuCollapsed = false;
-    this.setMenuLocalStorage();
   }
-
-  onClick($event) {
-    this.onClickLink.emit($event.target.innerText);
-  }
-
-  setMenuLocalStorage = () => {
-    localStorage.setItem('menuCollapsed', this.menuCollapsed ? '1' : '0');
-  };
 }

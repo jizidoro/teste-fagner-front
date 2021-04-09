@@ -1,10 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuModel } from '../../../../core/domain/menu.model';
-import { GetAllMenusUsecase } from 'src/app/core/usecases/menu/get-all-menu.usecase';
-import { GetMenuActiveLocalUsecase } from 'src/app/core/usecases/menu/get-menu-active-local.usecase';
-import { menu } from '../menu.routes';
-import { SetSessionNavigationUsecase } from 'src/app/core/usecases/session-navigation/set-session-navigation.usecase';
+import { MenuModel } from '../../../../core/utils/menu.model';
 
 @Component({
   selector: 'app-menu-full',
@@ -13,39 +9,18 @@ import { SetSessionNavigationUsecase } from 'src/app/core/usecases/session-navig
   encapsulation: ViewEncapsulation.None,
 })
 export class MenuFullComponent implements OnInit {
-  menus: MenuModel[];
-  constructor(
-    private router: Router,
-    private getAllMenus: GetAllMenusUsecase,
-    private setSessionNavigationUsecase: SetSessionNavigationUsecase,
-    private getMenuActiveLocalUsecase: GetMenuActiveLocalUsecase
-  ) {}
+  menus!: MenuModel[];
+  constructor(private router: Router) {}
 
-  public menu = menu;
   @Output() acaoFechaMenu: EventEmitter<any> = new EventEmitter<any>();
 
-  ngOnInit() {
-    if (this.menu == null) {
-      this.menu = JSON.parse(localStorage.getItem('proveMenu')) as MenuModel[];
-    }
-    // if (this.getAllMenus.execute()){
-    //   this.getAllMenus.execute().subscribe((value: MenuModel) => {
-    //     this.menus.push({
-    //       ...value
-    //     });
-    //   });
-    // }
-    // this.getMenuActiveLocalUsecase.execute().subscribe((value) => {
-    // });
-  }
+  ngOnInit() {}
 
   redirecionaHome() {
     this.router.navigate(['/home']);
   }
 
-  clearSession = () => {
-    this.setSessionNavigationUsecase.execute([]);
-  };
+  clearSession = () => {};
 
   clickMenu = () => {
     this.clearSession();
@@ -53,7 +28,7 @@ export class MenuFullComponent implements OnInit {
     this.acaoFechaMenu.emit();
   };
 
-  collapseItem = (item, parent: any[]) => {
+  collapseItem = (item: any, parent: any[]) => {
     if (item.collapsed) {
       parent.map((p) => (p.collapsed = true));
       item.collapsed = false;

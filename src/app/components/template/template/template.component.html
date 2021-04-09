@@ -1,4 +1,4 @@
-<div fxLayout="column" (window:resize)="onResize($event)">
+<div fxLayout="column">
   <div fxFlex="100">
     <div *ngIf="!menuCollapsed; then thenBlock; else elseBlock"></div>
     <div fxFlex="100" [ngClass]="!menuCollapsed && isMobile ? 'correcao-overlap-mobile' : ''">
@@ -15,11 +15,8 @@
               /></i>
             </span>
           </div>
-          <div fxFlex="100" fxHide.lt-sm class="">
+          <div fxFlex="100">
             <app-header [nomeUsuario]="nomeUsuario"></app-header>
-          </div>
-          <div fxFlex="100" fxHide.gt-xs class="">
-            <app-header-mobile [nomeUsuario]="nomeUsuario"></app-header-mobile>
           </div>
         </div>
         <div fxLayout="column" class="coluna-conteudo">
@@ -29,64 +26,30 @@
               <div class="container-usuario col-12 col-lg-6 p-0">
                 <span
                   [ngClass]="isMobile ? 'fonte-mobile' : ''"
-                  class="nome-template prove-color-grey7"
+                  class="nome-template kpmg-color-grey7"
                 >
                   Bem-Vindo,
-                  <strong
-                    ><span
-                      [ngClass]="isMobile ? 'fonte-mobile' : ''"
-                      *ngIf="proveToken != undefined"
-                      >{{ nomeUsuario }}</span
-                    ></strong
-                  >
                 </span>
                 <br />
                 <span
                   [ngClass]="isMobile ? 'fonte-mobile' : ''"
-                  class="matricula-template prove-color-grey3"
+                  class="matricula-template kpmg-color-grey3"
                 >
-                  <i class="pi pi-calendar"></i>
-                  Matrícula
-                  <span *ngIf="proveToken != undefined">{{
-                    proveToken.onpremisessamaccountname
-                  }}</span>
                 </span>
               </div>
               <!-- <div fxFlex.gt-xs="600px" fxFlex.xs="250px" fxLayoutAlign="end center"> -->
               <div class="col-12 col-lg-6 p-0 d-flex alignForMobile">
-                <ng-content select="[prove-header]"></ng-content>
+                <ng-content select="[kpmg-header]"></ng-content>
               </div>
             </div>
             <div fxLayout="row">
-              <div fxFlex="100" class="container-breadcrumb">
-                <app-toolbar-content
-                  [labelLink]="textoBreadcrumb"
-                  [redirect]="redirect"
-                  (click)="onClick($event)"
-                  id="link"
-                ></app-toolbar-content>
-              </div>
+              <div fxFlex="100" class="container-breadcrumb"></div>
             </div>
           </div>
 
           <div fxLayout="row">
             <div fxFlex="100" class="corpo">
               <!-- <p-toast key="toast" [life]="20000"> -->
-              <p-toast key="toast">
-                <ng-template let-message pTemplate="message">
-                  <a class="ui-toast-close-icon pi pi-times"></a>
-                  <span class="ui-toast-icon pi pi-times"></span>
-                  <div class="ui-toast-message-text-content">
-                    <div class="ui-toast-summary">{{ message.summary }}</div>
-                    <div class="ui-toast-detail">{{ message.detail }}</div>
-                  </div>
-                  <div *ngIf="message.data">
-                    <h6 class="data-message" *ngFor="let d of message.data">
-                      <small>{{ d.userMessage }}</small>
-                    </h6>
-                  </div>
-                </ng-template>
-              </p-toast>
               <ng-content></ng-content>
             </div>
           </div>
@@ -97,24 +60,18 @@
 </div>
 
 <ng-template #thenBlock>
-  <div fxFlex.gt-sm="260px" class="menu-prove" fxHide.lt-sm>
-    <div id="collapseParametro" class="menu-prove-container">
+  <div fxFlex.gt-sm="260px" class="menu-kpmg" fxHide.lt-sm>
+    <div id="collapseParametro" class="menu-kpmg-container">
       <app-menu-full (acaoFechaMenu)="fechaMenu($event)" class="menu-desktop-full"></app-menu-full>
     </div>
   </div>
-  <div class="menu-prove" fxHide.gt-xs>
-    <div id="collapseParametro" class="menu-prove-container">
-      <app-menu-mobile
-        [nomeUsuario]="nomeUsuario"
-        (acaoFechaMenu)="fechaMenu($event)"
-        class="menu-mobile"
-      ></app-menu-mobile>
-    </div>
+  <div class="menu-kpmg" fxHide.gt-xs>
+    <div id="collapseParametro" class="menu-kpmg-container"></div>
   </div>
 </ng-template>
 <ng-template #elseBlock>
-  <div fxFlex.gt-sm="82px" class="menu-prove" fxHide.lt-sm>
-    <div id="collapseParametro" class="menu-prove-container">
+  <div fxFlex.gt-sm="82px" class="menu-kpmg" fxHide.lt-sm>
+    <div id="collapseParametro" class="menu-kpmg-container">
       <app-menu-collapse
         (notify)="expadirMenu($event)"
         class="menu-desktop-collapse"

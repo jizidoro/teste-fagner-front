@@ -7,21 +7,9 @@
         /></i>
       </span>
     </div>
-    <div fxFlex="50px" class="container-icone-notificacao">
-      <span>
-        <div *ngIf="listNotification.length > 0" class="number">{{ listNotification.length }}</div>
-
-        <i (click)="togglePopup()" class="title-menu"
-          ><img src="../../../../assets/img/alert.svg" class="icone-notificacao"
-        /></i>
-      </span>
-      <app-header-notificacao-popup
-        [list]="listNotification"
-        [show]="popup"
-      ></app-header-notificacao-popup>
-    </div>
+    <div fxFlex="50px" class="container-icone-notificacao"></div>
     <div fxFlex="224px" class="container-icone-usuario">
-      <div class="informacao-colaborador" (click)="selectItem($event, opUsuario)">
+      <div class="informacao-colaborador">
         <div fxFlex="30" class="container-image">
           <img src="../../../../../assets/img/avatar2.svg" class="card-image" />
         </div>
@@ -41,11 +29,3 @@
     </div>
   </div>
 </header>
-
-<p-overlayPanel #opUsuario [appendTo]="'body'">
-  <div class="row">
-    <div class="col-12">
-      <a class="btn-overlay" (click)="logout()">Logout</a>
-    </div>
-  </div>
-</p-overlayPanel>

@@ -5,11 +5,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuFullComponent } from './menu-full/menu-full.component';
 import { MenuCollapseComponent } from './menu-collapse/menu-collapse.component';
-import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 
 @NgModule({
-  declarations: [MenuCollapseComponent, MenuFullComponent, MenuMobileComponent],
+  declarations: [MenuCollapseComponent, MenuFullComponent],
   imports: [CommonModule, RouterModule, NgbModule, FlexLayoutModule],
-  exports: [MenuCollapseComponent, MenuFullComponent, MenuMobileComponent],
+  exports: [MenuCollapseComponent, MenuFullComponent],
 })
 export class MenuModule {}

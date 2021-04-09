@@ -1,2 +1,8 @@
-<app-template [(tipoLayout)]="layout" [(textoBreadcrumb)]="textoBreadcrumb" [(isLoading)]="loading">
+<app-template>
+  <button (click)="logout()" class="btn-entrar">
+    <span class="acessar">Logout</span>
+    <span>
+      <img src="../../../assets/img/seta-login.svg" class="icone-seta-login" />
+    </span>
+  </button>
 </app-template>

@@ -8,7 +8,7 @@
   z-index: 2004;
   display: flex;
 
-  .preloading-prove {
+  .preloading-kpmg {
     // position: absolute;
     // top: 0;
     // bottom: 0;
@@ -21,11 +21,11 @@
     box-sizing: border-box;
     // padding: 15px;
 
-    .prove-1 {
+    .kpmg-1 {
       display: block;
       width: 92px;
       height: 92px;
-      background: url(../../../../assets/img/loading.svg) no-repeat center center;
+      background: url(../../../../assets/svg/loading.svg) no-repeat center center;
       background-size: contain;
       transform: rotateZ(45deg);
       animation: anRotate 1.7s linear infinite;

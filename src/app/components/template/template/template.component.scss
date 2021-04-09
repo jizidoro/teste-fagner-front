@@ -1,5 +1,5 @@
 @import '../../../../mediaqueries.scss';
-@import '../../../../padroes_prove.scss';
+@import '../../../../padroes_kpmg.scss';
 @import 'src/styles.scss';
 
 .container {
@@ -35,29 +35,6 @@
   border-bottom: 2px solid #ebebeb;
   background-color: white;
   padding-bottom: 3rem;
-
-  .wrapForMobile {
-    flex-wrap: initial;
-    padding: 32px 38px 0 38px;
-    height: auto;
-
-    @include media-breakpoint('lt-lg') {
-      flex-wrap: wrap;
-    }
-    .alignForMobile {
-      justify-content: flex-start;
-
-      @include media-breakpoint('xs') {
-        overflow: hidden;
-        height: 350px;
-        z-index: 2;
-      }
-
-      @include media-breakpoint('gt-md') {
-        justify-content: flex-end;
-      }
-    }
-  }
 }
 
 // .container-usuario {
@@ -74,13 +51,13 @@
   margin-left: 30px;
 }
 
-.menu-prove {
+.menu-kpmg {
   flex: 1 1 auto;
   box-sizing: border-box;
   display: flex;
 }
 
-.menu-prove-container {
+.menu-kpmg-container {
   flex: 1 1 auto;
   box-sizing: border-box;
   display: flex;

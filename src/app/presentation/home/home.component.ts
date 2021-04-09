@@ -1,9 +1,11 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
   @HostBinding('[@routeTransition]')
@@ -13,6 +15,11 @@ export class HomeComponent implements OnInit {
   layout = 'full';
   textoBreadcrumb = [{ title: 'Início', link: '' }];
 
-  public constructor() {}
+  constructor(private router: Router) {}
   ngOnInit() {}
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/auth']);
+  }
 }
