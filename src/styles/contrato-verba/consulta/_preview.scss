@@ -1,0 +1,81 @@
+.budget-contract {
+  &.contract-preview {
+    max-width: 800px;
+
+    .contract-info {
+      font-size: $fs-14;
+
+      ul {
+        @include columns(3);
+
+        li {
+          margin-bottom: $spacing-md;
+        }
+      }
+
+      strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+
+    /* ///////////////////////////////// */
+
+    .contract-options {
+      padding: $spacing-md;
+      margin-top: $spacing-md;
+      background: $background;
+      @include border-radius(4px);
+
+      .scrollbar {
+        max-height: 205px;
+      }
+
+      ol {
+        @include flexbox();
+        @include flex-align-items(center);
+        @include flex-wrap(wrap);
+
+        li {
+          margin: $spacing-sm;
+          @include flexbox();
+        }
+
+        span {
+          min-width: 80px;
+          font-size: $fs-14!important;
+          text-align: center;
+          padding: 15px 30px;
+          background: #f5f5f5;
+          @include border-radius(2px);
+          @include box-shadow(1px 1px 4px transparentize(black, .8));
+          @include transition (all 0.2s ease-in-out);
+        }
+      }
+
+      .table {
+        .table-header,
+        .table-content {
+          li {
+            &:nth-child(2) {
+              width: calc(55% - #{$table-padding * 2 * 4})
+            }
+
+            &:nth-child(1),
+            &:nth-child(3),
+            &:nth-child(4) {
+              width: 15%;
+            }
+
+            &:nth-child(3),
+            &:nth-child(4) {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+

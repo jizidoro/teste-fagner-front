@@ -1,0 +1,59 @@
+<div class="branches">
+  <div class="branches-list">
+    <div class="group">
+      <div class="header">
+        <p>Filtrar por:</p>
+      </div>
+
+      <div class="branches-inline">
+        <ul class="list-buttons scrollbar branch-primary">
+          <li><mat-checkbox>Bandeira</mat-checkbox></li>
+          <li><mat-checkbox>Cluster Loja</mat-checkbox></li>
+          <li><mat-checkbox>Filial</mat-checkbox></li>
+        </ul>
+
+        <ul class="list-buttons scrollbar branch-secondary">
+          <li><mat-checkbox>Drogasmil</mat-checkbox></li>
+          <li><mat-checkbox>Farmalife</mat-checkbox></li>
+          <li><mat-checkbox>Tamoio</mat-checkbox></li>
+          <li><mat-checkbox>Rosário</mat-checkbox></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- /// -->
+
+    <div class="branch-result">
+      <div class="filter">
+        <ul>
+          <li>
+            <mat-checkbox
+              [checked]="allComplete"
+              [indeterminate]="someComplete()"
+              (change)="setAll($event.checked)"
+            >
+              {{ tableList.name }}
+            </mat-checkbox>
+          </li>
+          <li>
+            <div class="filter-search">
+              <fa-icon [icon]="['far', 'search']"></fa-icon>
+              <input autocomplete="off" type="text" placeholder="Pesquisar" />
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="list-buttons scrollbar">
+        <li *ngFor="let tableItem of tableList.tableItem">
+          <mat-checkbox
+            [(ngModel)]="tableItem.completed"
+            (ngModelChange)="updateAllComplete()"
+          >
+            {{ tableItem.name }}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

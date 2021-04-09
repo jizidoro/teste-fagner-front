@@ -1,0 +1,91 @@
+<section class="dialog budget-contract contract-history">
+  <header>
+    <h1>Histórico de Edições</h1>
+  </header>
+
+  <!-- ============================================================================================================= -->
+
+  <div class="content">
+
+    <mat-accordion class="table">
+      <div class="filter">
+        <ul>
+          <li>
+            <div class="filter-search">
+              <fa-icon [icon]="['far', 'search']"></fa-icon>
+              <input autocomplete="off" type="text" placeholder="Pesquisar" />
+            </div>
+          </li>
+          <li>
+            <mat-form-field class="filter-select">
+              <mat-select [(value)]="filterOrderSelected">
+                <mat-option value="order">Ordernar por</mat-option>
+                <mat-option value="name">Nome</mat-option>
+                <mat-option value="date">Data</mat-option>
+                <mat-option value="hour">Horário</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+        </ul>
+      </div>
+
+      <!-- /// -->
+
+      <ul class="table-header">
+        <li>Nome</li>
+        <li>Data</li>
+        <li>Horário</li>
+      </ul>
+
+      <!-- /// -->
+
+      <div class="scrollbar">
+        <ul class="table-list">
+          <li *ngFor="let tableItem of tableList.tableItem">
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <ul class="table-content">
+                  <li>Thaiz Isidoro</li>
+                  <li>22/03/2021</li>
+                  <li>10:37:55</li>
+                </ul>
+              </mat-expansion-panel-header>
+
+              <div class="more">
+                <ul>
+                  <li>
+                    <strong>Tipo de Movimentação:</strong>
+                    Saída
+                    <span class="edited">Entrada</span>
+                  </li>
+                  <li>
+                    <strong>Valor Limite:</strong>
+                    R$ 300.000,00
+                    <span class="edited">R$ 120.000,00</span>
+                  </li>
+                  <li>
+                    <strong>Liberado por:</strong>
+                    Alexandre Pereira
+                    <span class="edited">Marcello Martins</span>
+                  </li>
+                </ul>
+              </div>
+            </mat-expansion-panel>
+
+          </li>
+        </ul>
+      </div>
+    </mat-accordion>
+
+  </div>
+
+  <!-- ============================================================================================================= -->
+
+  <ul class="dialog-actions">
+    <li>
+      <button (click)="closeDialog()"><fa-icon [icon]="['fas', 'times']"></fa-icon></button>
+    </li>
+  </ul>
+
+</section>

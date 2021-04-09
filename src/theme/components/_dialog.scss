@@ -1,0 +1,113 @@
+.dialog {
+  padding: 0;
+  position: relative;
+
+  > header {
+    padding-right: $spacing-lg;
+    @include flexbox();
+    @include flex-align-items(center);
+    @include flex-justify-content-end();
+    margin-bottom: $spacing-md;
+
+    h1 {
+      font-size: $fs-22;
+      margin: 0;
+    }
+  }
+
+  .label {
+    font-size: $fs-14;
+    margin-bottom: $spacing-sm;
+  }
+
+  .group-inline {
+    @include flexbox();
+
+    .group {
+      + .group {
+        margin-left: $spacing-md;
+      }
+    }
+  }
+
+  /* /////////////////////////////////////////////////////////////////// */
+  /* table */
+
+  mat-row {
+    min-height: 30px !important;
+  }
+
+  mat-header-cell,
+  mat-cell,
+  mat-footer-cell {
+    font-size: $fs-12;
+    flex: auto;
+
+    &:first-child,
+    &:last-child {
+      padding: 0;
+    }
+  }
+
+  .dialog-close,
+  .dialog-actions {
+    width: auto;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    cursor: pointer;
+    @include flexbox();
+    @include flex-align-items(center);
+
+    li {
+      position: relative;
+
+      &:last-child {
+        button {
+          padding-right: 0;
+        }
+      }
+    }
+
+    button {
+      width: 40px;
+      font-size: $fs-18;
+      color: $color-gray;
+      background: none;
+      border: none;
+      padding: 0 10px;
+    }
+
+    .tooltip {
+      &.top {
+        &.right {
+          right: 5px;
+        }
+      }
+    }
+
+    .mat-button-wrapper {
+      @include flexbox();
+      @include flex-align-items(center);
+
+      .mat-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+/* /////////////////////////////////////////////////////////////////// */
+/* skeleton */
+
+.mat-dialog-container {
+  padding: $dialog-padding!important;
+}
+
+.cdk-overlay-pane {
+  max-width: 95vw !important;
+}
+
+.mat-dialog-container {
+  overflow: hidden;
+}

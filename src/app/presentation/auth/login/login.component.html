@@ -1,0 +1,40 @@
+<div class="auth login align-center">
+  <section>
+    <header>
+      <div class="logo">
+        <object data="assets/svg/logo-white.svg"></object>
+      </div>
+    </header>
+
+    <!-- ============================================================================================================= -->
+
+    <div class="content">
+      <div class="profile-picture" style="background-image: url('assets/img/user.png')"></div>
+      <form class="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="fm-group">
+          <input
+            placeholder="Digite seu código"
+            formControlName="chave"
+            type="text"
+            autocomplete="off"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+          />
+        </div>
+
+        <div class="fm-group">
+          <input placeholder="Digite sua senha" type="password" formControlName="senha" />
+        </div>
+
+        <div class="buttons">
+          <button mat-raised-button type="submit">
+            Entrar
+            <app-loading *ngIf="isLoading"></app-loading>
+          </button>
+          <a class="forgot-password" [routerLink]="['/auth/forgot-password']">
+            Esqueceu sua senha?
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

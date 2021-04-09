@@ -1,0 +1,20 @@
+.scrollbar {
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparentize($color-gray, .5);
+    border-radius: 100rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-gray-lt;
+    border-radius: 100rem;
+  }
+
+  /* Works on Firefox */
+  scrollbar-color: $color-gray $color-gray-lt; /* thumb - track */
+  scrollbar-width: thin;
+}

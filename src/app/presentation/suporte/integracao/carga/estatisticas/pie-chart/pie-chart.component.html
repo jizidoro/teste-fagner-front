@@ -1,0 +1,27 @@
+<div class="pie-chart">
+  <div class="chart">
+    <canvas width="150" height="150" #canvas></canvas>
+
+    <div class="total">
+      <p><small>Total</small></p>
+      <!--<p vrCountUp [startVal]="0" [endVal]="total">12345</p>-->
+      <p>{{ getTotalValue() }}</p>
+    </div>
+  </div>
+
+  <!-- /// -->
+
+  <ul class="legend">
+    <li *ngFor="let value of data; let i = index">
+      <!--<div class="item-color" [style.background-color]="backgroundColor[i]"></div>-->
+      <!--<div class="item-value" vrCountUp [startVal]="0" [endVal]="value"></div>-->
+      <fa-icon class="icon" [icon]="icon[i]" [style.color]="backgroundColor[i]"></fa-icon>
+      <!--<i [className]="icon[i]" [style.color]="backgroundColor[i]"></i>-->
+
+      <div class="content">
+        <p><small>{{ labels[i] }}</small></p>
+        <p>{{ getPercentageValue(value) }}</p>
+      </div>
+    </li>
+  </ul>
+</div>

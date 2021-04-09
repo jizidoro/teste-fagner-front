@@ -1,0 +1,70 @@
+<app-screen-modal id="modal-teste" [cssModal]="" [title]="titleModal">
+  <header>
+    <h1>Resultado da Pesquisa</h1>
+  </header>
+
+  <!-- ============================================================================================================= -->
+
+  <div class="content">
+    <div class="table">
+      <div class="filter"></div>
+
+      <!-- /// -->
+
+      <ul class="table-header">
+        <li>Código</li>
+        <li>Nome</li>
+        <li>Fabricante</li>
+      </ul>
+
+      <!-- /// -->
+
+      <div class="scrollbar">
+        <ul class="table-list">
+          <li *ngFor="let produtoGeralLista of produtoGeralLista | async">
+            <ul class="table-content">
+              <li>
+                <a
+                  class="item-name"
+                  #tooltip="matTooltip"
+                  matTooltip="{{ produtoGeralLista.codigoProduto }}"
+                  matTooltipPosition="above"
+                  (dblclick)="closeDialog($event)"
+                  id="{{ produtoGeralLista.codigoProduto }}"
+                >
+                  {{ produtoGeralLista.codigoProduto }}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="item-name"
+                  #tooltip="matTooltip"
+                  matTooltip="{{ produtoGeralLista.descricaoProduto }}"
+                  matTooltipPosition="above"
+                  (dblclick)="closeDialog($event)"
+                  id="{{ produtoGeralLista.codigoProduto }}"
+                >
+                  {{ produtoGeralLista.descricaoProduto }}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="item-name"
+                  #tooltip="matTooltip"
+                  matTooltip="{{ produtoGeralLista.fabricanteProduto }}"
+                  matTooltipPosition="above"
+                  (dblclick)="closeDialog($event)"
+                  id="{{ produtoGeralLista.codigoProduto }}"
+                >
+                  {{ produtoGeralLista.fabricanteProduto }}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================================================================= -->
+</app-screen-modal>

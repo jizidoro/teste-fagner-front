@@ -1,0 +1,128 @@
+<app-breadcrumbs [currentPage]="'Carga - Estatísticas'" [header]="'primary'"></app-breadcrumbs>
+
+<!-- ============================================================================================================= -->
+
+<div class="charge statistics">
+
+  <section>
+    <header>
+      <div class="buttons">
+        <button mat-raised-button routerLink="/carga">
+          <fa-icon [icon]="['fas', 'database']"></fa-icon>
+          <span>Carga</span>
+        </button>
+      </div>
+    </header>
+  </section>
+
+  <!-- ///////////////////////////////////////////////////////////////////-->
+
+  <div class="statistics-panels">
+
+    <section class="statistics-success">
+      <div class="box group-inline">
+        <div class="group">
+          <bar-chart></bar-chart>
+        </div>
+
+        <!-- ////////////////// -->
+
+        <div class="group">
+          <div class="table">
+            <ul class="table-header">
+              <li>Filial</li>
+              <li>Sucesso</li>
+            </ul>
+
+            <!-- /// -->
+            <ul class="table-list scrollbar">
+              <li>
+                <ul class="table-content">
+                  <li>
+                    <span class="text-ellipsis"
+                          matTooltip="Lorem ipsum"
+                          matTooltipPosition="above">
+                      FL009 Casa Shopping
+                    </span>
+                  </li>
+                  <li>5</li>
+                </ul>
+              </li>
+
+              <!-- TEMP -->
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping Lorem ipsum dolor dit amet" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>5</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>10</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>15</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <li> <ul class="table-content"> <li> <span class="text-ellipsis" matTooltip="FL009 Casa Shopping" matTooltipPosition="above"> FL009 Casa Shopping Lorem ipsum dolor dit amet </span> </li><li>17</li></ul> </li>
+              <!-- /TEMP -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ////////////////////////////// -->
+
+    <section class="statistics-error">
+      <div class="box group-inline">
+        <div class="group">
+          <pie-chart></pie-chart>
+        </div>
+
+        <!-- ////////////////// -->
+
+        <div class="group">
+          <div class="table col-3">
+            <ul class="table-header">
+              <li>Filial</li>
+              <li>Tabela</li>
+              <li>Erros</li>
+            </ul>
+
+            <!-- /// -->
+
+            <div class="scrollbar">
+              <div class="scrollbar-container">
+                <ul class="table-list">
+                  <li>
+                    <ul class="table-content">
+                      <li>FL009</li>
+                      <li>
+                        <span class="text-ellipsis"
+                              matTooltip="EST_PROD_TBL_DESC_EST_PROD"
+                              matTooltipPosition="above">
+                          EST_PROD_TBL_DESC_EST_PROD
+                        </span>
+                      </li>
+                      <li>5</li>
+                    </ul>
+                  </li>
+
+                  <!-- TEMP -->
+                  <li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="EST_PROD_COD_BARR" matTooltipPosition="above"> EST_PROD_COD_BARR </span> </li><li>6</li></ul> </li><li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="RC_CLI" matTooltipPosition="above"> RC_CLI </span> </li><li>6</li></ul> </li>
+                  <li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="EST_PROD_COD_BARR" matTooltipPosition="above"> EST_PROD_COD_BARR </span> </li><li>6</li></ul> </li><li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="RC_CLI" matTooltipPosition="above"> RC_CLI </span> </li><li>6</li></ul> </li>
+                  <li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="EST_PROD_COD_BARR" matTooltipPosition="above"> EST_PROD_COD_BARR </span> </li><li>6</li></ul> </li><li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="RC_CLI" matTooltipPosition="above"> RC_CLI </span> </li><li>6</li></ul> </li>
+                  <li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="EST_PROD_COD_BARR" matTooltipPosition="above"> EST_PROD_COD_BARR </span> </li><li>6</li></ul> </li><li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="RC_CLI" matTooltipPosition="above"> RC_CLI </span> </li><li>6</li></ul> </li>
+                  <li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="EST_PROD_COD_BARR" matTooltipPosition="above"> EST_PROD_COD_BARR </span> </li><li>6</li></ul> </li><li> <ul class="table-content"> <li>FL009</li><li> <span class="text-ellipsis" matTooltip="RC_CLI" matTooltipPosition="above"> RC_CLI </span> </li><li>6</li></ul> </li>
+                  <!-- /TEMP -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>

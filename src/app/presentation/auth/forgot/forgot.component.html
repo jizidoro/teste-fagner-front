@@ -1,0 +1,35 @@
+<div class="auth forgot align-center">
+  <section>
+    <header>
+      <div class="logo">
+        <object data="assets/svg/logo-white.svg"></object>
+      </div>
+    </header>
+
+    <!-- ============================================================================================================= -->
+
+    <div class="content">
+      <div class="profile-picture" style="background-image: url('assets/img/user.png')"></div>
+
+      <form class="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="fm-group">
+          <input
+            type="text"
+            placeholder="Digite seu código"
+            name="codigo"
+            formControlName="chave"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+          />
+        </div>
+
+        <div class="buttons">
+          <button mat-raised-button type="submit">
+            Recuperar Senha
+            <app-loading *ngIf="isLoading"></app-loading>
+          </button>
+          <a [routerLink]="['/auth']">Voltar para login</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

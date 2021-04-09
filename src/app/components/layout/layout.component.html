@@ -1,0 +1,65 @@
+<mat-sidenav-container class="layout-container" [ngClass]="cardElevation">
+  <mat-sidenav
+    class="settings-sidenav"
+    (openedStart)="openSettings()"
+    (closedStart)="closeSettings()"
+    [opened]="settingsOpen | async"
+    mode="over"
+    position="end"
+    #options
+  >
+    <app-settings></app-settings>
+  </mat-sidenav>
+
+  <div
+    class="layout"
+    fxLayout="column"
+    [class.beta]="layout === 'beta'"
+    [class.boxed]="layoutBoxed | async"
+  >
+    <!-- Layout Beta -->
+    <app-toolbar-beta
+      *ngIf="layout === 'beta'"
+      [quickpanelOpen]="quickpanelOpen | async"
+      (toggledSidenav)="toggleSidenav()"
+      (toggledQuickpanel)="toggleQuickpanel()"
+    ></app-toolbar-beta>
+    <!-- /Layout: Beta -->
+
+    <mat-sidenav-container fxFlex>
+      <mat-sidenav
+        class="quickpanel-container"
+        (openedStart)="openQuickpanel()"
+        (closedStart)="closeQuickpanel()"
+        [opened]="quickpanelOpen | async"
+        [position]="quickpanelAlign"
+        [mode]="quickpanelMode"
+      >
+        <app-quickpanel></app-quickpanel>
+      </mat-sidenav>
+
+      <mat-sidenav
+        class="sidenav-container"
+        (openedStart)="openSidenav()"
+        (closedStart)="closeSidenav()"
+        [opened]="sidenavOpen | async"
+        [position]="sidenavAlign"
+        [mode]="sidenavMode"
+        [disableClose]="sidenavDisableClose | async"
+        [vrSidenavCollapse]="sidenavCollapsed | async"
+      >
+        <app-sidenav
+          [layout]="layout"
+          [collapsed]="sidenavCollapsed | async"
+          (toggledSidenavCollapse)="toggleSidenavCollapse()"
+        ></app-sidenav>
+      </mat-sidenav>
+
+      <div class="toolbar-container" fxLayout="column">
+        <div class="content-container" fxFlex>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-container>
+  </div>
+</mat-sidenav-container>

@@ -1,0 +1,115 @@
+.buttons {
+  margin: $spacing-sm 0;
+  position: relative;
+  @include flexbox();
+  @include flex-align-items(center);
+  @include flex-justify-content(flex-end);
+
+  button {
+    padding: 0 40px;
+    border: 1px solid transparent;
+    @include themify('color', 'button-text-color');
+    @include themify('background-color', 'button-color');
+    @include themify('border-color', 'button-color');
+    @include transition (all 0.2s ease-in-out);
+    @include transform(none); /* fix bug margin border */
+
+    &:hover {
+      @include themify('background-color', 'button-color-hover');
+      @include themify('border-color', 'button-color-hover');
+      @include transition (all 0.2s ease-in-out);
+    }
+
+    + button {
+      margin-left: $spacing-sm;
+    }
+
+    /* /// */
+
+    &:disabled {
+      background-color: $color-gray-lt;
+      border-color: $color-gray-lt;
+
+      &:hover {
+        background-color: $color-gray-lt;
+        border-color: $color-gray-lt;
+      }
+    }
+
+    /* /// */
+
+    &.mat-raised-button {
+      color: $color;
+      white-space: normal;
+      border: $border-divider;
+      cursor: pointer;
+      background-color: transparent;
+      @include box-shadow(none);
+      @include border-radius(4px);
+      @include transition (all 0.2s ease-in-out);
+
+      &:hover {
+        background-color: $color-gray-xlt;
+        border-color: $color-gray-xlt;
+        @include transition (all 0.2s ease-in-out);
+      }
+
+      &:disabled {
+        background-color: transparent;
+
+        &:hover {
+          border-color: $color-gray-lt;
+        }
+      }
+    }
+
+    /* /// */
+
+    &.cancel {
+      background-color: $color-red;
+      border-color: $color-red;
+
+      &:hover {
+        background-color: $color-red-hv;
+        border-color: $color-red-hv;
+      }
+    }
+
+    /* /// */
+
+    .mat-button-wrapper {
+      @include flexbox();
+      @include flex-align-items(center);
+      @include flex-justify-content(center);
+    }
+
+    fa-icon {
+      vertical-align: auto;
+
+      + span {
+        margin-left: 10px;
+      }
+    }
+
+    span {
+      + fa-icon {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.button-span {
+  color: black;
+  background: $color-green;
+  @include transition (all 0.2s ease-in-out);
+
+  &:hover {
+    background: $color-green-lt;
+    @include transition (all 0.2s ease-in-out);
+  }
+
+  + .button-span {
+    margin-left: $spacing-sm;
+  }
+}

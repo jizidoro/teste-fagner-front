@@ -1,0 +1,68 @@
+.budget-contract {
+  &.contract-query {
+
+    .mat-tab-content {
+      height: calc(100vh - 190px);
+
+      .scrollbar {
+        height: calc(100% - 95px);
+      }
+    }
+
+    .table {
+      .table-header,
+      .table-content {
+        li {
+          &:nth-child(1) {width: 30px; text-align: center;}
+          &:nth-child(2) {width: 10%}
+          &:nth-child(3) {width: calc(45% - 30px);}
+          &:nth-child(4) {width: 10%; text-align: center;}
+          &:nth-child(5) {width: 15%; text-align: center;}
+          &:nth-child(6) {width: 10%; text-align: center;}
+          &:nth-child(7) {width: 10%; text-align: center;}
+        }
+      }
+
+      /* /// */
+
+      .mat-expansion-panel {
+        .mat-expansion-panel-content {
+          .more {
+            @include flexbox();
+            @include flex-align-items(center);
+
+            ul {
+              width: 68%;
+              @include flexbox();
+
+              li {
+                width: calc(90% / 5);
+
+                &:first-child {
+                  width: 10%;
+                }
+
+                strong {
+                  display: block;
+                }
+              }
+            }
+
+            .buttons {
+              width: 32%;
+            }
+          }
+        }
+      }
+
+      /* /// */
+
+      .edited {
+        font-style: italic;
+        padding-top: 15px;
+      }
+
+    }
+
+  }
+}

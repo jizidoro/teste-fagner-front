@@ -1,0 +1,223 @@
+.charge {
+  &.statistics {
+    height: calc(100vh - #{$breadcrumb-height} - #{$header-height});
+
+    section {
+      padding-bottom: 0;
+    }
+
+    .statistics-panels {
+
+      section {
+        height: calc(45vh - #{$container-y *2} - #{$header-height});
+
+        + section {
+          height: calc(55vh - #{$container-y *2} - #{$header-height});
+          padding-top: $spacing-md;
+        }
+      }
+    }
+
+    /* /// */
+
+    .group-inline {
+      height: 100%;
+
+      .group {
+        height: 100%;
+        @include flexbox();
+        @include flex-direction(column);
+        @include flex-justify-content(center);
+      }
+    }
+
+    /* /// */
+
+    .pie-chart {
+      .legend {
+        margin-top: 10px;
+        @include flex-justify-content(center);
+
+        li {
+          text-align: center;
+          @include flex-direction(column);
+        }
+
+        .icon {
+          margin: 0 auto 5px;
+        }
+      }
+    }
+
+    /* /// */
+
+    .statistics-success {
+      .table-header,
+      .table-content {
+        li {
+          &:nth-child(1) {
+            width: calc(85% - #{$table-padding *2} - #{$table-spacing});
+          }
+          &:nth-child(2) {
+            width: 15%;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .statistics-error {
+      .table-header,
+      .table-content {
+        li {
+          &:nth-child(1) {
+            width: 15%;
+          }
+          &:nth-child(2) {
+            width: calc(70% - #{$table-padding *3} - #{$table-spacing});
+          }
+          &:nth-child(3) {
+            width: 15%;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+
+    @media screen and (min-width: $screen-md) {
+
+      .bar-chart {
+        canvas {
+          max-width: 70%;
+          max-height: 70%;
+          margin: 0 auto;
+        }
+      }
+
+      /* /// */
+
+      .pie-chart {
+        @include flexbox();
+        @include flex-align-items(center);
+
+        .legend {
+          margin: 0 0 0 10px;
+        }
+      }
+
+    }
+
+
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+
+    @media screen and (min-width: $screen-lg) {
+      height: calc(100vh - #{$breadcrumb-height} - #{$header-height});
+
+      .statistics-panels {
+        @include flexbox();
+
+        section {
+          width: calc(50% - 20px);
+          height: calc(100vh - #{$container-y *2} - #{$header-height} - 98px);
+
+          + section {
+            height: calc(100vh - #{$container-y *2} - #{$header-height} - 98px);
+            padding-left: 0;
+          }
+        }
+      }
+
+      /* /// */
+
+      .group-inline {
+        @include flex-direction(column);
+
+        .group {
+          width: 100%;
+          height: calc(50% - #{$spacing-sm});
+
+          + .group {
+            margin: $spacing-sm 0 0 0;
+          }
+        }
+      }
+
+      /* /// */
+
+      .bar-chart {
+        canvas {
+          max-width: 60%;
+          max-height: 60%;
+        }
+      }
+
+      /* /// */
+
+      .pie-chart {
+        .legend {
+
+          li {
+            text-align: left;
+            @include flex-direction(row);
+          }
+
+          .icon {
+            margin: 0 10px 0 0;
+          }
+        }
+      }
+
+    }
+
+
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+    /* ######################################################################################################## */
+
+    @media screen and (min-width: $screen-xlg) {
+
+      .pie-chart {
+        display: block;
+
+        .chart {
+          max-width: 250px;
+
+          .total {
+            zoom: 1.5;
+          }
+        }
+
+        .legend {
+          margin-top: $spacing-md;
+          @include flex-wrap(nowrap);
+
+          li {
+            width: calc(100% / 9);
+            text-align: center;
+            padding: 0;
+            @include flex-direction(column);
+
+            + li {
+              margin-left: $spacing-md;
+            }
+          }
+
+          .icon {
+            margin: 0 auto 10px;
+          }
+        }
+      }
+    }
+
+  }
+}

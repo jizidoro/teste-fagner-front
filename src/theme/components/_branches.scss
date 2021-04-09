@@ -1,0 +1,165 @@
+.branches {
+  .header {
+    font-size: $fs-14;
+    margin: 0 10px 10px 10px;
+  }
+
+  .scrollbar {
+    height: 270px;
+  }
+
+  /* /// */
+
+  .branches-list,
+  .branches-inline {
+    @include flexbox();
+  }
+
+  /* /// */
+
+  .branches-list {
+    .group {
+      .header {
+        padding-bottom: 10px;
+        margin: 0 0 10px 0;
+        border-bottom: $border-divider;
+
+        p {
+          height: 30px;
+          @include flexbox();
+          @include flex-align-items(center);
+        }
+      }
+    }
+  }
+
+  /* /// */
+
+  .list-buttons {
+
+    li {
+      margin: 10px;
+
+      .mat-checkbox {
+        position: relative;
+
+        .mat-checkbox-label {
+          min-width: 80px;
+          font-size: $fs-14!important;
+          text-align: center;
+          padding: 15px 30px;
+          background: #f5f5f5;
+          @include border-radius(2px);
+          @include box-shadow(1px 1px 4px transparentize(black, .8));
+          @include transition (all 0.2s ease-in-out);
+
+          &:hover {
+            @include transition (all 0.2s ease-in-out);
+            background: white;
+          }
+        }
+
+        .mat-checkbox-inner-container {
+          width: 25px;
+          height: 25px;
+          margin: -15px 0 0 0!important;
+          position: absolute;
+          top: 50%;
+          left: 10px;
+        }
+
+        .mat-checkbox-frame {
+          display: none;
+        }
+
+        &.mat-checkbox-checked {
+          .mat-checkbox-label {
+            color: white;
+            background: $color-eight;
+          }
+
+          .mat-checkbox-background {
+            background: transparent;
+          }
+        }
+      }
+    }
+
+    &.branch-primary,
+    &.branch-secondary {
+      @include flexbox();
+      @include flex-direction(column);
+    }
+
+    &.branch-primary {
+      li {
+        .mat-checkbox-checked {
+          .mat-checkbox-label {
+            background: $color-six;
+          }
+        }
+      }
+    }
+
+    &.branch-secondary {
+      li {
+        .mat-checkbox-checked {
+          .mat-checkbox-label {
+            background: $color-seven;
+          }
+        }
+      }
+    }
+  }
+
+  /* /// */
+
+  .branch-result {
+    width: 100%;
+    padding-left: $spacing-md;
+    margin-left: $spacing-md;
+    border-left: $border-divider;
+    position: relative;
+
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent $color-gray-lt;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin: -10px 0 0 0;
+    }
+
+    .filter {
+      .filter-search {
+        width: 177px;
+      }
+    }
+
+    ul {
+      @include flexbox();
+      @include flex-wrap(wrap);
+    }
+  }
+
+
+  /* ######################################################################################################## */
+  /* ######################################################################################################## */
+  /* ######################################################################################################## */
+  /* ######################################################################################################## */
+
+  @media screen and (min-width: $screen-md) {
+
+    .branch-result {
+      .filter {
+        .filter-search {
+          width: 300px;
+        }
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,174 @@
+<app-breadcrumbs [currentPage]="'Carga'" [header]="'primary'"></app-breadcrumbs>
+
+<!-- ============================================================================================================= -->
+
+<div class="charge">
+  <section>
+    <header>
+        <div class="buttons">
+          <button mat-raised-button routerLink="/carga/estatisticas">
+            <fa-icon [icon]="['far', 'chart-bar']"></fa-icon>
+            <span>Estatísticas</span>
+          </button>
+        </div>
+
+      <div class="buttons">
+        <button mat-button routerLink="/">Executar</button>
+      </div>
+    </header>
+  </section>
+
+  <!-- ============================================================================================================= -->
+
+  <section class="dashboard">
+    <header>
+      <p><strong>Escolha um ou mais serviços abaixo:</strong></p>
+    </header>
+
+    <ul>
+      <li>
+        <!--<mat-checkbox [checked]="true">-->
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'th']"></fa-icon>
+          <span>Completa</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'boxes']"></fa-icon>
+          <span>Produtos</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'users']"></fa-icon>
+          <span>Clientes</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'building']"></fa-icon>
+          <span>Convênios</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'user-tie']"></fa-icon>
+          <span>Conveniados</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
+          <span>Fidelidade</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'tags']"></fa-icon>
+          <span>Preços</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'house-user']"></fa-icon>
+          <span>Funcionários</span>
+        </mat-checkbox>
+      </li>
+      <li>
+        <mat-checkbox>
+          <fa-icon [icon]="['fas', 'cog']"></fa-icon>
+          <span>Configuração</span>
+        </mat-checkbox>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================================================================================================= -->
+
+  <section>
+    <mat-accordion multi>
+      <mat-expansion-panel expanded>
+        <mat-expansion-panel-header>
+          <h2>Selecione uma Filial</h2>
+        </mat-expansion-panel-header>
+
+        <app-branches></app-branches>
+
+      </mat-expansion-panel>
+
+      <!-- ///////////////////////////////////////// -->
+
+      <mat-expansion-panel class="log">
+        <mat-expansion-panel-header>
+          <h2>Log de Execução</h2>
+        </mat-expansion-panel-header>
+
+        <div class="table">
+          <div class="filter">
+            <ul>
+              <li>
+                <mat-form-field class="filter-select">
+                  <mat-select [(value)]="filterBranchSelected">
+                    <mat-option value="fl009">FL009</mat-option>
+                    <mat-option value="fl010">FL0010</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </li>
+              <li>
+                <mat-form-field class="filter-select">
+                  <mat-select [(value)]="filterChargeSelected">
+                    <mat-option value="order">Ordernar por Carga</mat-option>
+                    <mat-option value="date">Completa</mat-option>
+                    <mat-option value="hour">Produtos</mat-option>
+                    <mat-option value="hour">Clientes</mat-option>
+                    <mat-option value="hour">Convênios</mat-option>
+                    <mat-option value="hour">Conveniados</mat-option>
+                    <mat-option value="hour">Fidelidade</mat-option>
+                    <mat-option value="hour">Preços</mat-option>
+                    <mat-option value="hour">Funcionários</mat-option>
+                    <mat-option value="hour">Configuração</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </li>
+              <li>
+                <div class="filter-search">
+                  <fa-icon [icon]="['far', 'search']"></fa-icon>
+                  <input autocomplete="off" type="text" placeholder="Pesquisar" />
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- /// -->
+
+          <ul class="table-header">
+            <li>Filial</li>
+            <li>Descrição</li>
+            <li>Data</li>
+            <li>Horário</li>
+          </ul>
+
+          <!-- /// -->
+
+          <div class="scrollbar">
+            <ul class="table-list">
+              <li *ngFor="let tableItem of tableList.tableItem">
+
+                <ul class="table-content">
+                  <li>{{tableItem.branch}}</li>
+                  <li>{{tableItem.description}}</li>
+                  <li>{{tableItem.date}}</li>
+                  <li>{{tableItem.hour}}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+
+</div>

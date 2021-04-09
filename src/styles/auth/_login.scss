@@ -1,0 +1,142 @@
+.login {
+  width: 100%;
+  @include gradient(140deg, #555555, #000000);
+
+  section {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: $spacing-md;
+    @include flex-justify-content(center);
+
+    .logo {
+      object {
+        width: 100%;
+        max-width: 240px;
+      }
+    }
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border: 2px solid white;
+    margin: 0 auto $spacing-md;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow-x: hidden;
+    @include border-radius(100rem);
+  }
+
+  p {
+    color: white;
+  }
+
+  input {
+    width: 100%;
+    font-size: $fs-18;
+    text-align: center;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparentize(white, .7);
+    padding: 10px 0;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill::first-line,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      font: 400 $fs-18 'Roboto'!important;
+    }
+  }
+
+  .forgot-password {
+    font-size: $fs-16;
+    color: white;
+    cursor: pointer;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  .buttons {
+    margin-top: $spacing-md;
+    @include flex-direction(column);
+    @include flex-justify-content(center);
+
+    button {
+      width: 100%;
+      max-width: 200px;
+      color: white;
+      text-transform: uppercase;
+      padding: 4px 20px;
+
+      &:hover {
+        border-color: transparentize(white, .5);
+        background: transparent;
+      }
+
+        &.mat-button-disabled {
+          color: white;
+        }
+    }
+
+    a {
+      font-size: $fs-14;
+      color: white;
+      margin-top: $spacing-md;
+    }
+  }
+
+  .expired-password {
+    margin: $spacing-md 0;
+
+    > p {
+      font-size: $fs-22;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  }
+
+
+  /* ######################################################################################################## */
+  /* ######################################################################################################## */
+  /* ######################################################################################################## */
+  /* ######################################################################################################## */
+
+  @media screen and (min-width: $screen-md) {
+    header {
+      .logo {
+        object {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+    }
+
+    section {
+      max-width: 800px;
+      @include flexbox();
+      @include flex-justify-content(space-between);
+
+      .content {
+        width: calc(100% - 240px - #{$spacing-lg} / 2);
+        padding-left: $spacing-lg;
+        margin-left: $spacing-lg;
+        border-left: 1px solid transparentize(white, .8);
+      }
+    }
+
+    input {
+      font-size: $fs-16;
+    }
+  }
+
+}

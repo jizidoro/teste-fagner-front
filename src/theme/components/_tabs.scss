@@ -1,0 +1,38 @@
+.mat-tab-group {
+  .mat-tab-label {
+    height: 40px;
+    font-weight: 400;
+    color: $color;
+    z-index: 1;
+
+    &.mat-tab-label-active {
+      font-weight: 600;
+      @include opacity(1);
+    }
+  }
+
+  .mat-ink-bar {
+    height: 100%;
+    background: white!important;
+    @include box-shadow(1px 1px 4px transparentize(black, .8));
+
+  }
+
+  .mat-tab-nav-bar,
+  .mat-tab-header {
+    border: none;
+    overflow: auto;
+  }
+
+  .mat-tab-body-wrapper {
+    background: white;
+    @include border-radius(2px);
+    @include box-shadow(1px 1px 4px transparentize(black, .8));
+  }
+
+  .mat-tab-content {
+    padding: $spacing-md;
+  }
+}
+
+
