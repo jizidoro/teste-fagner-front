@@ -4,14 +4,14 @@ import { map } from 'rxjs/operators';
 import { LookupModel } from 'src/app/core/utils/lookup.model';
 import { BaseHttpService } from 'src/app/services/http/base-http.service';
 import { environment } from 'src/environments/environment.prod';
-import { BaUsuLookupRepository } from '../../core/lookup-repository/ba-usu-lookup.repository';
+import { UsuarioSistemaLookupRepository } from '../../core/lookup-repository/usuario-sistema-lookup.repository';
 import { LookupWebEntity } from './helpers/lookup-web-entity';
 import { LookupWebRepositoryMapper } from './helpers/lookup-web-repository-mapper';
 
 @Injectable({
   providedIn: 'root',
 })
-export class BaUsuLookupWebRepository extends BaUsuLookupRepository {
+export class UsuarioSistemaLookupWebRepository extends UsuarioSistemaLookupRepository {
   mapper = new LookupWebRepositoryMapper();
 
   constructor(public http: BaseHttpService) {

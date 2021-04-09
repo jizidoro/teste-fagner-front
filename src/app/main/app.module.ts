@@ -23,8 +23,8 @@ import { TokenWebRepository } from '../data/repository/token-web-reporitory/toke
 import { TokenRepository } from '../core/repositories/token.repository';
 import { ContratoVerbaRepository } from '../core/repositories/contrato-verba.repository';
 import { ContratoVerbaWebRepository } from '../data/repository/contrato-verba-web-repository/contrato-verba-web.repository';
-import { BaUsuLookupRepository } from '../core/lookup-repository/ba-usu-lookup.repository';
-import { BaUsuLookupWebRepository } from '../data/lookup-repository/ba-usu-lookup-web.repository';
+import { UsuarioSistemaLookupRepository } from '../core/lookup-repository/usuario-sistema-lookup.repository';
+import { UsuarioSistemaLookupWebRepository } from '../data/lookup-repository/usuario-sistema-lookup-web.repository';
 import { ProdutoGeralRepository } from '../core/repositories/produto-geral.repository';
 import { ProdutoGeralWebRepository } from '../data/repository/produto-geral-web-repository/produto-geral-web-repository';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
@@ -70,7 +70,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     { provide: ContratoVerbaRepository, useClass: ContratoVerbaWebRepository },
     { provide: ProdutoGeralRepository, useClass: ProdutoGeralWebRepository },
     { provide: TokenRepository, useClass: TokenWebRepository },
-    { provide: BaUsuLookupRepository, useClass: BaUsuLookupWebRepository },
+    { provide: UsuarioSistemaLookupRepository, useClass: UsuarioSistemaLookupWebRepository },
   ],
   bootstrap: [AppComponent],
 })
