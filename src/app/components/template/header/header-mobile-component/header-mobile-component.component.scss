@@ -1,0 +1,31 @@
+@import '../../../../../padroes_prove.scss';
+
+.header-mobile {
+  height: 80px;
+  border: 1px solid #ebebeb;
+
+  .icone-notificacao {
+    margin: 24px 9px 24px 9px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .container-icone-notificacao {
+    width: 50px;
+    height: 80px;
+    border: 1px solid #ebebeb;
+  }
+
+  .icone-prove {
+    margin: 23px 0px 23px 10px;
+    width: 120.8px;
+    height: 36.1px;
+    object-fit: contain;
+  }
+
+  .container-icone-prove {
+    height: 80px;
+    border: 1px solid #ebebeb;
+  }
+}

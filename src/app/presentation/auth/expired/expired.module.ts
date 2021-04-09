@@ -8,7 +8,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -21,7 +20,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    FontAwesomeModule,
   ],
   declarations: [ExpiredComponent],
 })

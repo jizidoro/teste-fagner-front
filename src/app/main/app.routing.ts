@@ -14,14 +14,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'contrato-verba',
-    loadChildren: () =>
-      import('../presentation/pricing/contrato-verba/contrato-verba.module').then(
-        (m) => m.ContratoVerbaModule
-      ),
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'auth',
     loadChildren: () => import('../presentation/auth/auth.module').then((m) => m.AuthModule),
   },

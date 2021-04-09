@@ -9,7 +9,9 @@ export class HomeComponent implements OnInit {
   @HostBinding('[@routeTransition]')
   routeTransition = false;
 
-  isLoading = false;
+  public loading = false;
+  layout = 'full';
+  textoBreadcrumb = [{ title: 'Início', link: '' }];
 
   public constructor() {}
   ngOnInit() {}
