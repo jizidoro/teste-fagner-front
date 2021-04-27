@@ -11,7 +11,7 @@ import { ScreenModalService } from './screen-modal.service';
             <h6 class="font-weight-bold title">{{ title }}</h6>
           </div>
           <div *ngIf="hasCloseIcon" class="close">
-            <a (click)="close()"><fa-icon [icon]="['fas', 'times']"></fa-icon></a>
+            <a (click)="close()">X</a>
           </div>
         </div>
         <div class="screen-modal-bodycontent">
