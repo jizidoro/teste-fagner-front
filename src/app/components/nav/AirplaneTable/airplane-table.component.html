@@ -1,0 +1,61 @@
+<app-airplane-edit></app-airplane-edit>
+<div>
+  <form [formGroup]="registerForm">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Codigo</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Q. Passageiros</th>
+          <th scope="col">Data de Registro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let airplane of airplanes; index as i" (click)="clickBla(airplane)">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ airplane.codigo }}</td>
+          <td>{{ airplane.modelo }}</td>
+          <td>{{ airplane.quantidadePassageiro }}</td>
+          <td>{{ airplane.dataRegistro.toLocaleDateString() }}</td>
+        </tr>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">
+            <input
+              class="form-control"
+              name="codigo"
+              formControlName="codigo"
+              placeholder="Codigo"
+              type="number"
+              [readOnly]="inputReadOnly"
+            />
+          </th>
+          <th scope="col">
+            <input
+              class="form-control"
+              name="modelo"
+              formControlName="modelo"
+              placeholder="Modelo"
+              type="text"
+              [readOnly]="inputReadOnly"
+            />
+          </th>
+          <th scope="col">
+            <input
+              class="form-control"
+              name="quantidadePassageiro"
+              formControlName="quantidadePassageiro"
+              placeholder="Quantidade de Passageiro"
+              type="number"
+              [readonly]="inputReadOnly"
+            />
+          </th>
+          <th scope="col">
+            <button (click)="onSubmit()" [disabled]="inputReadOnly">></button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

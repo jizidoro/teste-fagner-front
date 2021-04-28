@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
+import { NavRoutingModule } from '../nav.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CdkTableModule } from '@angular/cdk/table';
 import { NgxMaskModule } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
-import { TemplateModule } from '../template/template.module';
+import { TemplateModule } from '../../template/template.module';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavRoutingModule } from './nav.routing';
-import { NavComponent } from './nav.component';
-import { AirplaneTableModule } from './AirplaneTable/airplane-table.module';
+import { AirplaneTableComponent } from './airplane-table.component';
+import { AirplaneEditModule } from './AirplaneEdit/airplane-edit.module';
 
 @NgModule({
   imports: [
@@ -21,9 +21,9 @@ import { AirplaneTableModule } from './AirplaneTable/airplane-table.module';
     CommonModule,
     TemplateModule,
     NgbNavModule,
-    AirplaneTableModule,
+    AirplaneEditModule,
   ],
-  exports: [NavComponent],
-  declarations: [NavComponent],
+  exports: [AirplaneTableComponent],
+  declarations: [AirplaneTableComponent],
 })
-export class NavModule {}
+export class AirplaneTableModule {}

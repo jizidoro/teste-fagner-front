@@ -15,7 +15,7 @@ export class AirplaneWebRepositoryMapper extends Mapper<AirplaneWebEntity, Airpl
 
   mapTo(param: AirplaneModel): AirplaneWebEntity {
     return {
-      id: param.id,
+      id: param?.id,
       codigo: param.codigo,
       modelo: param.modelo,
       quantidadePassageiro: param.quantidadePassageiro,

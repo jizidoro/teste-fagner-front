@@ -4,11 +4,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CdkTableModule } from '@angular/cdk/table';
 import { NgxMaskModule } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
-import { TemplateModule } from '../template/template.module';
+import { AirplaneEditComponent } from './airplane-edit.component';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavRoutingModule } from './nav.routing';
-import { NavComponent } from './nav.component';
-import { AirplaneTableModule } from './AirplaneTable/airplane-table.module';
+import { TemplateModule } from '../../../template/template.module';
+import { NavRoutingModule } from '../../nav.routing';
+import { ScreenModalModule } from '../../../screen-modal/screen-modal.module';
 
 @NgModule({
   imports: [
@@ -21,9 +21,9 @@ import { AirplaneTableModule } from './AirplaneTable/airplane-table.module';
     CommonModule,
     TemplateModule,
     NgbNavModule,
-    AirplaneTableModule,
+    ScreenModalModule,
   ],
-  exports: [NavComponent],
-  declarations: [NavComponent],
+  exports: [AirplaneEditComponent],
+  declarations: [AirplaneEditComponent],
 })
-export class NavModule {}
+export class AirplaneEditModule {}

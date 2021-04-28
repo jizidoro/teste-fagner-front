@@ -9,7 +9,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
 import { TemplateModule } from '../../components/template/template.module';
-
+import { NavModule } from 'src/app/components/nav/nav.module';
 @NgModule({
   imports: [
     HomeRoutingModule,
@@ -20,6 +20,7 @@ import { TemplateModule } from '../../components/template/template.module';
     NgxMaskModule.forRoot(),
     CommonModule,
     TemplateModule,
+    NavModule,
   ],
   exports: [],
   declarations: [HomeComponent],

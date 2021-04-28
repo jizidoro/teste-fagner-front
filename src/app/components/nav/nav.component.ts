@@ -1,41 +1,8 @@
 import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { GetAllExemploCrudUsecase } from '../../core/usecases/exemplo-crud/get-all-exemplo-crud.usecase';
-
-interface Country {
-  name: string;
-  flag: string;
-  area: number;
-  population: number;
-}
-
-const COUNTRIES: Country[] = [
-  {
-    name: 'Russia',
-    flag: 'f/f3/Flag_of_Russia.svg',
-    area: 17075200,
-    population: 146989754,
-  },
-  {
-    name: 'Canada',
-    flag: 'c/cf/Flag_of_Canada.svg',
-    area: 9976140,
-    population: 36624199,
-  },
-  {
-    name: 'United States',
-    flag: 'a/a4/Flag_of_the_United_States.svg',
-    area: 9629091,
-    population: 324459463,
-  },
-  {
-    name: 'China',
-    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    area: 9596960,
-    population: 1409517397,
-  },
-];
-
+import { AirplaneModel } from 'src/app/core/domain/airplane.model';
+import { GetAllAirplaneUsecase } from 'src/app/core/usecases/airplane/get-all-airplane.usecase';
+import { PageFilterModel } from 'src/app/core/utils/page-filter.model';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -43,11 +10,14 @@ const COUNTRIES: Country[] = [
   encapsulation: ViewEncapsulation.None,
 })
 export class NavComponent implements OnInit {
-  @HostBinding('[@routeTransition]')
   active = 'Airplane';
-  countries = COUNTRIES;
+  airplanes?: AirplaneModel[];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private getAllAirplane: GetAllAirplaneUsecase) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAllAirplane.execute(new PageFilterModel()).subscribe((x) => {
+      this.airplanes = x.data;
+    });
+  }
 }

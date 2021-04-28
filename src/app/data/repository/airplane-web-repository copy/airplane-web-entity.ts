@@ -1,5 +1,5 @@
 export interface AirplaneWebEntity {
-  id: number;
+  id?: number;
   codigo: string;
   modelo: string;
   quantidadePassageiro: number;

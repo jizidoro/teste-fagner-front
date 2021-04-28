@@ -1,5 +1,5 @@
 export interface AirplaneModel {
-  id: number;
+  id?: number;
   codigo: string;
   modelo: string;
   quantidadePassageiro: number;
