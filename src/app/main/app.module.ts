@@ -26,6 +26,8 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { kpmgTokenRepository } from '../core/repositories/kpmg-token.repository';
 import { kpmgTokenWebRepository } from '../data/repository/kpmg-token-web-repository/kpmg-token-web.repository';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AirplaneRepository } from '../core/repositories/airplane.repository';
+import { AirplaneWebRepository } from '../data/repository/airplane-web-repository copy/airplane-web.repository';
 
 export function getBaseHref(platformLocation: PlatformLocation): string {
   return platformLocation.getBaseHrefFromDOM();
@@ -63,6 +65,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     { provide: AutenticacaoRepository, useClass: AutenticacaoWebRepository },
     { provide: TokenRepository, useClass: TokenWebRepository },
     { provide: UsuarioSistemaLookupRepository, useClass: UsuarioSistemaLookupWebRepository },
+    { provide: AirplaneRepository, useClass: AirplaneWebRepository },
   ],
   bootstrap: [AppComponent],
 })
