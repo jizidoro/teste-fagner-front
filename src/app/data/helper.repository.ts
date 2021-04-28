@@ -1,5 +1,6 @@
+import { HttpParams } from '@angular/common/http';
 import { PageCustomFilterModel } from '../core/utils/page-custom-filter.model';
-import { PageFilterModel } from '../core/utils/page-filter.model';
+import { PageFilterModel, ParamCustom } from '../core/utils/page-filter.model';
 
 export const makeParamFilterGrid = (filter: PageFilterModel): string => {
   const filters = [];
@@ -20,7 +21,7 @@ export const makeParamFilterGrid = (filter: PageFilterModel): string => {
   }
 
   (filter.custom || []).map((c: any) => {
-    filters.push(c);
+    filters.push(`${c.key}=${c.value}`);
   });
 
   return filters.length > 0 ? `?${filters.join('&')}` : '';
@@ -31,6 +32,16 @@ export const makeParamCustomFilterGrid = (filter: PageCustomFilterModel): string
 
   (filter.custom || []).map((c: any) => {
     filters.push(c);
+  });
+
+  return filters.length > 0 ? `?${filters.join('&')}` : '';
+};
+
+export const makeParamFilterList = (filter: PageFilterModel): string => {
+  const filters: any[] = [];
+
+  (filter.custom || []).map((c: ParamCustom) => {
+    filters.push(`${c.key}=${c.value}`);
   });
 
   return filters.length > 0 ? `?${filters.join('&')}` : '';

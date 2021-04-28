@@ -13,3 +13,8 @@ export class PageFilterModel {
     this.pageSize = 50;
   }
 }
+
+export class ParamCustom {
+  key!: string;
+  value!: string;
+}
