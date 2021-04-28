@@ -10,6 +10,8 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
 import { TemplateModule } from '../../components/template/template.module';
 import { NavModule } from 'src/app/components/nav/nav.module';
+import { ScreenModalModule } from '../../components/screen-modal/screen-modal.module';
+import { AirplaneEditComponent } from './AirplaneEdit/airplane-edit.component';
 @NgModule({
   imports: [
     HomeRoutingModule,
@@ -21,8 +23,9 @@ import { NavModule } from 'src/app/components/nav/nav.module';
     CommonModule,
     TemplateModule,
     NavModule,
+    ScreenModalModule,
   ],
   exports: [],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, AirplaneEditComponent],
 })
 export class HomeModule {}
