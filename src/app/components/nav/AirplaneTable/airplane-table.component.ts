@@ -16,6 +16,7 @@ import { ScreenModalService } from '../../screen-modal/screen-modal.service';
 export class AirplaneTableComponent implements OnInit {
   airplanes?: AirplaneModel[];
   inputReadOnly = false;
+  airplaneModal?: AirplaneModel;
 
   constructor(
     private router: Router,
@@ -36,8 +37,10 @@ export class AirplaneTableComponent implements OnInit {
   }
 
   loadTable() {
+    this.inputReadOnly = true;
     this.getAllAirplane.execute(new PageFilterModel()).subscribe((x) => {
       this.airplanes = x.data;
+      this.inputReadOnly = false;
     });
   }
 
@@ -49,10 +52,9 @@ export class AirplaneTableComponent implements OnInit {
     });
   }
 
-  clickBla(e: any) {
-    console.log(this.modalService);
+  clickBla(e: AirplaneModel) {
+    this.airplaneModal = e;
     this.modalService.open('airplane-edit');
-    console.log(e);
   }
 
   onSubmit() {
@@ -71,7 +73,6 @@ export class AirplaneTableComponent implements OnInit {
         this.inputReadOnly = false;
       },
       (e) => {
-        console.log(e);
         this.inputReadOnly = false;
       }
     );

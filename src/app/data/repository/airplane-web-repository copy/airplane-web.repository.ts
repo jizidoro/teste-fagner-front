@@ -52,7 +52,7 @@ export class AirplaneWebRepository extends AirplaneRepository {
 
   putAirplane(param: AirplaneModel) {
     return this.http
-      .put<void>(`${environment.AUTORIZACAO}Airplane/Editar/${param.id}`, this.mapper.mapTo(param))
+      .put<void>(`${environment.AUTORIZACAO}Airplane/editar`, this.mapper.mapTo(param))
       .pipe(map((x) => x.data));
   }
 

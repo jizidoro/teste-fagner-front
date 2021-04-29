@@ -17,15 +17,11 @@ export class HomeComponent implements OnInit {
   layout = 'full';
   textoBreadcrumb = [{ title: 'Início', link: '' }];
 
-  constructor(private router: Router, private modalService: ScreenModalService) {}
+  constructor(private router: Router) {}
   ngOnInit() {}
 
   logout() {
     localStorage.clear();
     this.router.navigate(['/auth']);
-  }
-
-  modalDoca() {
-    this.modalService.open('airplane-edit');
   }
 }

@@ -8,7 +8,9 @@ import { TemplateModule } from '../template/template.module';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavRoutingModule } from './nav.routing';
 import { NavComponent } from './nav.component';
-import { AirplaneTableModule } from './AirplaneTable/airplane-table.module';
+import { AirplaneTableComponent } from './AirplaneTable/airplane-table.component';
+import { AirplaneEditComponent } from './AirplaneEdit/airplane-edit.component';
+import { ScreenModalModule } from '../screen-modal/screen-modal.module';
 
 @NgModule({
   imports: [
@@ -21,9 +23,9 @@ import { AirplaneTableModule } from './AirplaneTable/airplane-table.module';
     CommonModule,
     TemplateModule,
     NgbNavModule,
-    AirplaneTableModule,
+    ScreenModalModule,
   ],
   exports: [NavComponent],
-  declarations: [NavComponent],
+  declarations: [NavComponent, AirplaneTableComponent, AirplaneEditComponent],
 })
 export class NavModule {}

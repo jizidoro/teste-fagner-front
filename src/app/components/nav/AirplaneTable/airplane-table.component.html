@@ -1,4 +1,4 @@
-<app-airplane-edit></app-airplane-edit>
+<app-airplane-edit [airplane]="airplaneModal" (notify)="loadTable()"></app-airplane-edit>
 <div>
   <form [formGroup]="registerForm">
     <table class="table table-striped">

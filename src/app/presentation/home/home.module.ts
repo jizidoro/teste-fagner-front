@@ -11,7 +11,6 @@ import { HomeRoutingModule } from './home.routing';
 import { TemplateModule } from '../../components/template/template.module';
 import { NavModule } from 'src/app/components/nav/nav.module';
 import { ScreenModalModule } from '../../components/screen-modal/screen-modal.module';
-import { AirplaneEditComponent } from './AirplaneEdit/airplane-edit.component';
 @NgModule({
   imports: [
     HomeRoutingModule,
@@ -26,6 +25,6 @@ import { AirplaneEditComponent } from './AirplaneEdit/airplane-edit.component';
     ScreenModalModule,
   ],
   exports: [],
-  declarations: [HomeComponent, AirplaneEditComponent],
+  declarations: [HomeComponent],
 })
 export class HomeModule {}
