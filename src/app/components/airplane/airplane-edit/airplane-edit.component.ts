@@ -13,6 +13,8 @@ import { AirplaneModel } from '../../../core/domain/airplane.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScreenModalService } from '../../screen-modal/screen-modal.service';
 import { PutAirplaneUsecase } from '../../../core/usecases/airplane/put-airplane.usecase';
+import { GetAirplaneByIdUsecase } from '../../../core/usecases/airplane/get-airplane-by-id.usecase';
+import { DeleteAirplaneUsercase } from '../../../core/usecases/airplane/delete-airplane.usercase';
 
 @Component({
   selector: 'app-airplane-edit',
@@ -35,7 +37,9 @@ export class AirplaneEditComponent implements OnInit, OnChanges {
     private router: Router,
     private fb: FormBuilder,
     private modalService: ScreenModalService,
-    private putAirplane: PutAirplaneUsecase
+    private putAirplane: PutAirplaneUsecase,
+    private getAirplaneByID: GetAirplaneByIdUsecase,
+    private deleteAirplane: DeleteAirplaneUsercase
   ) {}
 
   ngOnInit() {
@@ -43,8 +47,6 @@ export class AirplaneEditComponent implements OnInit, OnChanges {
   }
 
   public startForm() {
-    console.log('xuxa');
-    console.log(this.airplane?.codigo);
     this.registerForm = this.fb.group({
       codigo: [this.airplane?.codigo],
       modelo: [this.airplane?.modelo, Validators.required],
@@ -52,19 +54,22 @@ export class AirplaneEditComponent implements OnInit, OnChanges {
     });
   }
 
-  // ngDoCheck() {
-  //   console.log(this.airplane?.codigo);
-  // }
-  //
   ngOnChanges(changes: SimpleChanges) {
-    this.registerForm = this.fb.group({
-      codigo: [this.airplane?.codigo],
-      modelo: [this.airplane?.modelo, Validators.required],
-      quantidadePassageiro: [this.airplane?.quantidadePassageiro, Validators.required],
-    });
+    if (this.airplane?.id)
+      this.getAirplaneByID.execute(this.airplane?.id).subscribe((x) => {
+        if (x.codigo == 200) {
+          this.registerForm = this.fb.group({
+            codigo: [this.airplane?.codigo],
+            modelo: [this.airplane?.modelo, Validators.required],
+            quantidadePassageiro: [this.airplane?.quantidadePassageiro, Validators.required],
+          });
+        } else {
+          alert('Erro ao abrir registro!');
+        }
+      });
   }
 
-  onSubmit() {
+  onUpdate() {
     const updatedAirplane: AirplaneModel = {
       codigo: this.registerForm.value.codigo,
       modelo: this.registerForm.value.modelo,
@@ -74,13 +79,30 @@ export class AirplaneEditComponent implements OnInit, OnChanges {
     };
     this.putAirplane.execute(updatedAirplane).subscribe(
       () => {
-        this.modalService.close('airplane-edit');
-        this.notify.emit();
+        this.closeModalRefreshTable();
       },
       (e) => {
-        console.log(e);
-        this.modalService.close('airplane-edit');
+        alert(e);
+        this.closeModalRefreshTable();
       }
     );
+  }
+
+  onDelete() {
+    if (this.airplane?.id)
+      this.deleteAirplane.execute(this.airplane.id).subscribe(
+        () => {
+          this.closeModalRefreshTable();
+        },
+        () => {
+          alert('Erro ao excluir registro!');
+          this.closeModalRefreshTable();
+        }
+      );
+  }
+
+  closeModalRefreshTable() {
+    this.modalService.close('airplane-edit');
+    this.notify.emit();
   }
 }

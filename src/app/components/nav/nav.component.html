@@ -1,26 +1,11 @@
 <div class="d-flex">
   <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills" orientation="vertical">
-    <li ngbNavItem="Airplane">
-      <a ngbNavLink>Airplane</a>
+    <li *ngFor="let item of itens" ngbNavItem="{{ item.titulo }}">
+      <a ngbNavLink>{{ item.titulo }}</a>
       <ng-template ngbNavContent>
-        <app-airplane-table></app-airplane-table>
-      </ng-template>
-    </li>
-    <li ngbNavItem="UsuarioSistema">
-      <a ngbNavLink>Usuários do Sistema</a>
-      <ng-template ngbNavContent>
-        <p>
-          Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan
-          four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft
-          beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic,
-          assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero
-          magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-          sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party
-          scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-        </p>
+        <app-airplane-table *ngIf="item.content === 'app-airplane-table'"></app-airplane-table>
       </ng-template>
     </li>
   </ul>
   <div [ngbNavOutlet]="nav" class="ml-4"></div>
 </div>
-<pre>Active: {{ active }}</pre>

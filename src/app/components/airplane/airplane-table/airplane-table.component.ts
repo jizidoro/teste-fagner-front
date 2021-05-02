@@ -17,6 +17,8 @@ export class AirplaneTableComponent implements OnInit {
   airplanes?: AirplaneModel[];
   inputReadOnly = false;
   airplaneModal?: AirplaneModel;
+  pageFilter: PageFilterModel = { pageSize: 10, pageNumber: 1 };
+  airplaneLenght = 0;
 
   constructor(
     private router: Router,
@@ -38,21 +40,22 @@ export class AirplaneTableComponent implements OnInit {
 
   loadTable() {
     this.inputReadOnly = true;
-    this.getAllAirplane.execute(new PageFilterModel()).subscribe((x) => {
+    this.getAllAirplane.execute(this.pageFilter).subscribe((x) => {
       this.airplanes = x.data;
+      this.airplaneLenght = 20;
       this.inputReadOnly = false;
     });
   }
 
   public startForm() {
     this.registerForm = this.fb.group({
-      codigo: [5555],
-      modelo: ['fdsfa', Validators.required],
-      quantidadePassageiro: [984498, Validators.required],
+      codigo: [null],
+      modelo: ['', Validators.required],
+      quantidadePassageiro: [null, Validators.required],
     });
   }
 
-  clickBla(e: AirplaneModel) {
+  openEditModal(e: AirplaneModel) {
     this.airplaneModal = e;
     this.modalService.open('airplane-edit');
   }
