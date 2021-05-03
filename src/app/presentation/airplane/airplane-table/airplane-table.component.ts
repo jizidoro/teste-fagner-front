@@ -5,7 +5,7 @@ import { GetAllAirplaneUsecase } from '../../../core/usecases/airplane/get-all-a
 import { PageFilterModel } from '../../../core/utils/page-filter.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostAirplaneUsecase } from '../../../core/usecases/airplane/post-airplane.usecase';
-import { ScreenModalService } from '../../screen-modal/screen-modal.service';
+import { ScreenModalService } from '../../../components/screen-modal/screen-modal.service';
 
 @Component({
   selector: 'app-airplane-table',
