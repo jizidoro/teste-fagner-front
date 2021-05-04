@@ -11,7 +11,7 @@ import {
 import { Router } from '@angular/router';
 import { AirplaneModel } from '../../../core/domain/airplane.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ScreenModalService } from '../../screen-modal/screen-modal.service';
+import { ScreenModalService } from '../../../components/screen-modal/screen-modal.service';
 import { PutAirplaneUsecase } from '../../../core/usecases/airplane/put-airplane.usecase';
 import { GetAirplaneByIdUsecase } from '../../../core/usecases/airplane/get-airplane-by-id.usecase';
 import { DeleteAirplaneUsercase } from '../../../core/usecases/airplane/delete-airplane.usercase';
